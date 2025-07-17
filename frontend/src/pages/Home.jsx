@@ -5,6 +5,8 @@ import BestSeller from '../components/BestSeller'
 // import OurPolicy from '../components/OurPolicy'
 import HeroSection from '../components/HeroSection'
 import Newsletter from './Newsletter'
+import CardSwapSection from '../components/CardSwapSection'
+import CircularGallery from '../components/CircularGallerySection'
 
 const Home = () => {
   return (
@@ -12,7 +14,9 @@ const Home = () => {
       <Hero />
       <HeroSection />
       <LatestCollection />
+      <CircularGallery />
       <BestSeller />
+      <CardSwapSection />
       <Newsletter />
     </div>
   )
