@@ -12,16 +12,16 @@ import support_img from './support_img.png'
 import menu_icon from './menu_icon.png'
 import razorpay_logo from './razorpay_logo.png'
 import cross_icon from './cross_icon.png'
-import main_img from './main_img.webp'
-import about_img  from "./about_img.jpg";
+// import main_img from './main_img.webp'
+import about_video  from "./about_video.mp4";
 import firstscroll  from "./first-scroll.avif";
 import secondscroll  from "./second-scroll.avif";
 
 
 export const assets = {
     logo,
-    about_img,
-    main_img,
+    about_video,
+    // main_img,
     firstscroll,
     secondscroll,
     cart_icon,

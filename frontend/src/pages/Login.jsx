@@ -134,11 +134,11 @@ const Login = () => {
 
       <div className="w-full flex justify-between text-sm mt-[-8px]">
         {currentState === 'Login' ? (
-          <p onClick={() => setCurrentState('Sign Up')} className="cursor-pointer text-blue-500">
+          <p onClick={() => setCurrentState('Sign Up')} className="cursor-pointer underline text-blue-500">
             Create account
           </p>
         ) : (
-          <p onClick={() => setCurrentState('Login')} className="cursor-pointer text-blue-500">
+          <p onClick={() => setCurrentState('Login')} className="cursor-pointer underline text-blue-500">
             Login here
           </p>
         )}

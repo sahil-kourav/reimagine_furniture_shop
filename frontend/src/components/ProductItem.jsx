@@ -6,27 +6,34 @@ const ProductItem = ({ id, image, name, price }) => {
   const { currency } = useContext(ShopContext);
 
   return (
-    <Link
-      onClick={() => scrollTo(0, 0)}
-      to={`/product/${id}`}
-      className="group w-full max-w-xs mx-auto rounded-xl overflow-hidden"
+    <Link to={`/product/${id}`} onClick={() => window.scrollTo(0, 0)}
+      className="group relative w-full max-w-[280px] mx-auto overflow-hidden bg-white transition duration-300 ease-in-out"
     >
-      <div className="overflow-hidden">
+      {/* Image section */}
+      <div className="relative overflow-hidden">
         <img
           src={image[0]}
           alt={name}
-          className="w-full h-64 object-cover hover:scale-110 transition ease-in-out"
+           className="w-full h-64 object-fit hover:scale-110 transition ease-in-out"
         />
+
+        {/* Hover badge */}
+        <span className="absolute top-3 left-3 bg-white/90 text-gray-800 text-[11px] px-2 py-[2px] rounded-full font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          Quick View
+        </span>
       </div>
 
-      <div className="pt-2 pb-4">
-        <p className="text-lg font-semibold text-gray-800 truncate">{name}</p>
-        <p className="text-md text-gray-600 mt-1">
-             {price.toLocaleString("en-IN", {
-             style: "currency",
-             currency: "INR",
-             maximumFractionDigits: 0
-            })}
+      {/* Product Details */}
+      <div className="py-3 space-y-1">
+        <h2 className="text-md w-[90%] font-medium text-gray-800 group-hover:text-black transition duration-200 truncate">
+          {name}
+        </h2>
+        <p className="text-sm text-gray-500">
+          {price.toLocaleString("en-IN", {
+            style: "currency",
+            currency: "INR",
+            maximumFractionDigits: 0,
+          })}
         </p>
       </div>
     </Link>

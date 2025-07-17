@@ -23,15 +23,15 @@ const OurPolicy = () => {
   ];
 
   return (
-    <div className="py-4 px-4 sm:px-10">
+    <div className="mt-12 px-4 sm:px-10">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
         {policies.map((item, index) => (
           <div
             key={index}
             className="p-6"
           >
-            <img src={item.icon} alt={item.title} className="w-12 h-12 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
+            <img src={item.icon} alt={item.title} className="w-10 h-10 opacity-76 mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-gray-700 mb-2">{item.title}</h3>
             <p className="text-sm text-gray-500">{item.desc}</p>
           </div>
         ))}

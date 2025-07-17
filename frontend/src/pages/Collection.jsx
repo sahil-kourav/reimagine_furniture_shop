@@ -63,13 +63,14 @@ const Collection = () => {
   }, [sortType]);
 
   return (
-    <div className="py-8 border-t bg-white">
+    <div className="py-10 min-h-screen transition-all duration-300">
       <div className="flex flex-col sm:flex-row gap-8">
-        <aside className="w-full sm:w-64">
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+        {/* Sidebar */}
+        <aside className="w-full sm:w-52 p-0 ">
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
             <select
               onChange={(e) => setSortType(e.target.value)}
-              className="border rounded px-4 py-3 text-md w-full sm:w-fit outline-none"
+              className="border text-sm rounded px-4 py-2 w-full sm:w-fit outline-none shadow-sm"
             >
               <option value="relavent">Sort by: Relevant</option>
               <option value="low-high">Sort by: Low to High</option>
@@ -77,27 +78,24 @@ const Collection = () => {
             </select>
           </div>
 
-          {/* Sidebar Filters */}
-          <div className="flex justify-between items-center sm:hidden border p-2 rounded-md">
-            <h2 className="ml-2">
-              Shop by Category
-            </h2>
-
+          {/* Filter Toggle (mobile) */}
+          <div className="flex justify-between items-center sm:hidden border p-2 rounded-md bg-gray-50">
+            <h2 className="ml-2 font-medium text-gray-700">Shop by Category</h2>
             <img
-              className={`w-2 transform ${showFilter ? "rotate-90" : ""}`}
+              className={`w-2 transition-transform duration-300 ${showFilter ? "rotate-90" : ""}`}
               src={assets.dropdown_icon}
               onClick={() => setShowFilter(!showFilter)}
               alt="toggle"
             />
           </div>
 
-          <div className={`mt-4 sm:block ${showFilter ? "block" : "hidden"}`}>
-            <div className="border rounded p-4 shadow-sm">
-              <h2 className="text-lg font-semibold mb-4 text-gray-700">
+          {/* Category Filters */}
+          <div className={`mt-4 sm:block ${showFilter ? "block" : "hidden"} transition-all`}>
+            <div className="border rounded-md p-4 shadow-sm">
+              <h2 className="text-md font-semibold mb-4 text-gray-700">
                 Select Category
               </h2>
-
-              <div className="flex flex-col gap-3 text-md text-gray-900">
+              <div className="flex flex-col gap-3 text-sm text-gray-800">
                 {["Sofa", "Bed", "DinningSet", "Wardrobe"].map((cat) => (
                   <label key={cat} className="flex items-center gap-2">
                     <input
@@ -114,26 +112,32 @@ const Collection = () => {
           </div>
         </aside>
 
-        {/* Main Product Section */}
+        {/* Main Product Area */}
         <main className="flex-1">
-          <div className="flex justify-between text-base sm:text-2xl mb-4">
-            <Title text1={"ALL"} text2={"COLLECTIONS"} />
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+            <h1 className="text-3xl font-semibold text-gray-800 tracking-tight">
+              Our Collections
+            </h1>
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in">
             {filterProducts.length > 0 ? (
               filterProducts.map((item, index) => (
-                <ProductItem
+                <div
                   key={index}
-                  name={item.name}
-                  id={item.id}
-                  price={item.price}
-                  image={item.image}
-                />
+                  className="motion-safe:animate-fade-up transition-transform duration-500"
+                >
+                  <ProductItem
+                    name={item.name}
+                    id={item.id}
+                    price={item.price}
+                    image={item.image}
+                  />
+                </div>
               ))
             ) : (
-              <p className="text-gray-500 text-center col-span-full">
+              <p className="text-gray-500 text-center col-span-full text-lg mt-10">
                 No products found.
               </p>
             )}
