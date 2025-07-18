@@ -8,22 +8,22 @@ const BestSeller = () => {
 
   useEffect(() => {
     const bestProduct = products.filter((item) => item.bestseller);
-    setBestSeller(bestProduct.slice(0, 4));
+    setBestSeller(bestProduct.slice(0, 5));
   }, [products]);
 
   return (
-    <div className="my-10">
+<div className="w-full min-h-screen py-20">
       <div className="text-center text-3xl">
         <div className="text-center px-4 sm:px-6 md:px-8 lg:px-16 py-6">
           <h1 className="text-3xl sm:text-2xl md:text-3xl font-ubuntu font-semibold text-gray-700 leading-snug">Best Sellers</h1>
-          <p className="max-w-3xl mx-auto mt-5 text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed">
+        <p className="max-w-3xl mx-auto mt-5 px-2 md:px-4 lg:px-2 text-lg sm:text-base md:text-lg lg:text-md text-gray-600 leading-relaxed text-center">
             Discover our most loved and top-selling products, handpicked by our
             happy customers. Quality meets style.
           </p>
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-6 px-4 md:px-8">
+      <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4 gap-y-6 px-4 md:px-8 lg:px-12">
         {bestSeller.map((item, index) => (
           <ProductItem
             key={index}

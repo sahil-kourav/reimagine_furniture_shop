@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="w-full max-w-7xl mx-auto mt-10 text-md">
+    <footer className="w-full max-w-7xl mx-auto text-md">
       <hr className="border-gray-300 mb-5" />
       <div className="flex flex-col md:flex-row justify-between gap-10 mb-10 text-gray-600">
         {/* About Section */}

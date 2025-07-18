@@ -64,10 +64,10 @@ const Collection = () => {
 
   return (
     <div className="py-10 min-h-screen transition-all duration-300">
-      <div className="flex flex-col sm:flex-row gap-8">
+      <div className="flex flex-col sm:flex-row gap-6 px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Sidebar */}
-        <aside className="w-full sm:w-52 p-0 ">
-          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+        <aside className="w-full sm:w-52">
+          <div className="flex flex-col sm:flex-row gap-4 mb-4">
             <select
               onChange={(e) => setSortType(e.target.value)}
               className="border text-sm rounded px-4 py-2 w-full sm:w-fit outline-none shadow-sm"
@@ -114,14 +114,14 @@ const Collection = () => {
 
         {/* Main Product Area */}
         <main className="flex-1">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
-            <h1 className="text-3xl font-semibold text-gray-800 tracking-tight">
+          <div className="flex flex-col sm:flex-row justify-between items-start pb-5">
+            <h1 className="text-2xl sm:text-xl md:text-2xl lg:text-2xl font-semibold text-gray-700 tracking-tight">
               Our Collections
             </h1>
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-fade-in">
             {filterProducts.length > 0 ? (
               filterProducts.map((item, index) => (
                 <div
