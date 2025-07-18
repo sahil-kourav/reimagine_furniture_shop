@@ -12,7 +12,7 @@ const BestSeller = () => {
   }, [products]);
 
   return (
-<div className="w-full min-h-screen py-20">
+<div className="w-full bg-gray-200 min-h-screen py-20">
       <div className="text-center text-3xl">
         <div className="text-center px-4 sm:px-6 md:px-8 lg:px-16 py-6">
           <h1 className="text-3xl sm:text-2xl md:text-3xl font-ubuntu font-semibold text-gray-700 leading-snug">Best Sellers</h1>

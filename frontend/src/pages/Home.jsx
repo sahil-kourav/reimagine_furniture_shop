@@ -15,9 +15,10 @@ const Home = () => {
       <HeroSection />
       <CircularGallery />
       <LatestCollection />
-      <BestSeller />
       <CardSwapSection />
+      <BestSeller />
       <Newsletter />
+      
     </div>
   )
 }

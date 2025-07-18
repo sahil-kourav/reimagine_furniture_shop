@@ -14,12 +14,20 @@ import razorpay_logo from './razorpay_logo.png'
 import cross_icon from './cross_icon.png'
 // import main_img from './main_img.webp'
 import about_video  from "./about_video.mp4";
+import Furniture_Product_1  from "./Furniture_Product_1.mp4";
+import Furniture_Product_2  from "./Furniture_Product_2.mp4";
+import Furniture_Product_3  from "./Furniture_Product_3.mp4";
+import Furniture_Product_4  from "./Furniture_Product_4.mp4";
 import firstscroll  from "./first-scroll.avif";
 import secondscroll  from "./second-scroll.avif";
 
 
 export const assets = {
     logo,
+    Furniture_Product_1,
+    Furniture_Product_2,
+    Furniture_Product_3,
+    Furniture_Product_4,
     about_video,
     // main_img,
     firstscroll,

@@ -3,8 +3,7 @@ import { Mail } from "lucide-react";
 
 const Newsletter = () => {
   return (
-        <section className="w-full h-[400px] py-20 px-4 sm:px-8 text-center font-sans">
-    
+    <section className="w-full h-[500px] px-4 sm:px-8 flex items-center justify-center text-center font-sans">
       <div className="max-w-2xl mx-auto">
         <p className="text-sm font-medium tracking-wider text-gray-600 pb-2 uppercase">
           — Our Newsletter
@@ -21,17 +20,25 @@ const Newsletter = () => {
           Get 20% off on your first order just by subscribing to our newsletter.
         </p>
 
-        <form className="flex items-center justify-center gap-2 max-w-xl border border-gray-600 mx-auto bg-white shadow-sm">      
+        <form className="flex items-center justify-center gap-2 max-w-xl border border-gray-600 mx-auto bg-white shadow-sm">
           <div className="flex items-center ml-4 gap-4 w-full">
             <Mail className="text-gray-500 w-6 h-6 sm:w-15 sm:h-10" />
-            <input className='w-full p-2 sm:flex-1 outline-none' type="text" placeholder='Enter your email id' required />
-            <button className='bg-gray-800 hover:bg-gray-700 text-white text-sm px-8 py-4' type='submit'>SUBSCRIBE</button>
+            <input
+              className="w-full p-2 sm:flex-1 outline-none"
+              type="text"
+              placeholder="Enter your email id"
+              required
+            />
+            <button
+              className="bg-gray-800 hover:bg-gray-700 text-white text-sm px-8 py-4"
+              type="submit"
+            >
+              SUBSCRIBE
+            </button>
           </div>
-      </form>
-
+        </form>
       </div>
     </section>
-
   );
 };
 
