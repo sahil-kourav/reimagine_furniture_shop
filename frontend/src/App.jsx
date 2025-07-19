@@ -15,19 +15,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Verify from "./pages/Verify";
 import NotFound from "./NotFound/NotFound";
-import ClickSpark from "./functionalities/ClickSpark";
 
 const App = () => {
   return (
-    // <div className='px-4 sm:px-[5vw] md:px-[5vw] lg:px-[7vw]'>
+      // < className='px-4 sm:px-[5vw] md:px-[5vw] lg:px-[7vw]'>
     <div>
-      <ClickSpark
-        sparkColor="#6b6cd4ed"
-        sparkSize={10}
-        sparkRadius={15}
-        sparkCount={8}
-        duration={300}
-      >
         <ToastContainer />
         <Navbar />
         <SearchBar />
@@ -44,7 +36,6 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
-      </ClickSpark>
     </div>
   );
 };

@@ -8,7 +8,9 @@ const CartTotal = () => {
   return (
     <div className="w-full">
       <div className="text-xl sm:text-2xl my-4">
-        <Title text1={"CART"} text2={"TOTALS"} />
+          <h1 className="text-3xl sm:text-3xl md:text-3xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
+            Cart Totals
+          </h1>
       </div>
 
       <div className="space-y-2 text-lg sm:text-base text-gray-700">

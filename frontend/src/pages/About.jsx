@@ -1,13 +1,11 @@
 import React from "react";
-import { assets } from "../assets/assets";
-
-// Material UI Icons
 import VerifiedIcon from "@mui/icons-material/Verified";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import LockIcon from "@mui/icons-material/Lock";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
+import { assets } from "../assets/assets";
 
 const features = [
   {
@@ -18,7 +16,7 @@ const features = [
   {
     icon: <FlashOnIcon fontSize="large" className="text-[#3bc9db]" />,
     title: "Seamless Experience",
-    desc: "Fast, responsive, and user-friendly shopping experience on all devices.",
+    desc: "Fast, intuitive, and responsive shopping across all platforms.",
   },
   {
     icon: <SupportAgentIcon fontSize="large" className="text-[#3bc9db]" />,
@@ -42,72 +40,95 @@ const features = [
   },
 ];
 
-const About = () => {
+const AboutUs = () => {
   return (
-    <div className="px-4 sm:px-8 md:px-16 lg:px-24 py-14 bg-[#f9f9f9] text-gray-700">
-      {/* Heading */}
-       <div className="text-center mb-16">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">About NestCraft</h1>
-        <p className="text-gray-500 text-lg max-w-xl mx-auto">
-          Blending innovation, trust, and a seamless experience — all in one place.
-        </p>
-        <div className="mx-auto mt-2 h-[2px] w-24 bg-gradient-to-r from-[#3bc9db] via-sky-500 to-[#3bc9db] rounded-full" />
+    <section className="bg-white text-gray-800 font-sans">
+
+      {/* Hero Section */}
+      <div className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px]">
+        <img
+          src="https://cdn.sanity.io/images/gan92b2a/burrow-production/7fa20e71737b0d1ca5b1d892c3b78973b0a6e621-2880x1600.jpg?auto=format&fit=max&q=75&w=1440"
+          alt="Furniture Hero"
+          className="w-full h-full object-cover brightness-75"
+        />
+        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center px-4 sm:px-8 text-center">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-300 mb-4">
+            Smarter by Design
+          </p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight max-w-3xl">
+            Furniture That Just Makes Sense
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-gray-200 mt-4 max-w-2xl">
+            Frustrated by compromises between quality, affordability, and convenience,
+            NestCraft was founded as a new approach to furniture. Because normal was never good enough.
+          </p>
+        </div>
       </div>
 
-      {/* Video and About Text */}
-      <div className="flex flex-col lg:flex-row items-center gap-12 mb-24">
-        <div className="w-full lg:w-1/2 animate-fadeInUp">
-          <div className="overflow-hidden">
-            <video
-              className="w-full h-auto object-fit"
-              src={assets.about_video}
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          </div>
+      {/* About Section */}
+      <div className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 py-20 gap-10">
+        
+        {/* Text Content */}
+        <div className="w-full md:w-[50%] space-y-5">
+          <h2 className="text-3xl font-bold text-center md:text-left text-gray-800">
+            About Us
+          </h2>
+          <p className="text-gray-600 text-md md:text-base leading-relaxed">
+            At NestCraft, we believe your home should tell your story.
+            Our mission is to craft more than just furniture — we create
+            timeless, functional pieces that elevate everyday living.
+            From modern minimalism to classic comfort, our collections
+            are designed to blend style, quality, and versatility.
+          </p>
+          <p className="text-gray-600 text-md md:text-base leading-relaxed">
+            With a customer-first mindset, flexible payment options, and
+            seamless doorstep delivery, we make the journey from inspiration
+            to installation effortless. Whether you’re styling a new space
+            or redefining an old one, NestCraft is your trusted partner in
+            bringing your dream interiors to life.
+          </p>
         </div>
 
-        <div className="w-full lg:w-1/2 animate-fadeInUp space-y-6">
-          <p className="text-gray-600 leading-relaxed text-[16px]">
-            <strong className="text-gray-800">NestCraft</strong> was founded to simplify shopping. With a strong focus on reliability, comfort, and trust, we provide an elegant and smooth online experience.
-          </p>
-          <p className="text-gray-600 leading-relaxed text-[16px]">
-            From style to essentials, we handpick every product to meet your expectations, delivering quality with every order.
-          </p>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Our Mission</h3>
-            <p className="text-gray-600 leading-relaxed">
-              We aim to empower shoppers with <strong>choice, confidence, and convenience</strong> by building a trusted digital space.
-            </p>
-          </div>
+        {/* Video */}
+        <div className="w-full md:w-1/2 overflow-hidden rounded shadow-md">
+          <video
+            src={assets.about_video}
+            className="w-full h-[280px] object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
         </div>
       </div>
 
       {/* Why Choose Us */}
-      <div className="text-center pt-2 pb-6">
-        <h2 className="text-4xl sm:text-3xl font-semibold font-ubuntu text-gray-800">
+      <div className="text-center py-10 px-4">
+        <h2 className="text-3xl font-bold text-gray-800">
           Why Choose Us
         </h2>
-        <div className="mx-auto mt-2 h-[2px] w-32 bg-gradient-to-r from-[#3bc9db] via-blue-500 to-[#3bc9db] rounded-full" />
+        <div className="mt-3 h-[2px] w-24 mx-auto bg-gradient-to-r from-[#3bc9db] via-blue-500 to-[#3bc9db] rounded-full" />
       </div>
 
-      {/* Feature Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 animate-fadeInUp">
-        {features.map((item, index) => (
+      {/* Features Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 md:px-24 pb-20">
+        {features.map((item, idx) => (
           <div
-            key={index}
-            className="bg-white p-8 border border-gray-200 shadow-md transition-transform duration-300"
+            key={idx}
+            className="p-8 border border-gray-200 bg-white rounded-lg shadow-sm text-center space-y-3 hover:shadow-md transition"
           >
-            <div className="mb-4">{item.icon}</div>
-            <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>
-            <p className="text-gray-600 text-sm">{item.desc}</p>
+            <div className="flex justify-center">{item.icon}</div>
+            <h4 className="font-semibold text-lg text-gray-800">
+              {item.title}
+            </h4>
+            <p className="text-gray-600 text-sm">
+              {item.desc}
+            </p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
-export default About;
+export default AboutUs;

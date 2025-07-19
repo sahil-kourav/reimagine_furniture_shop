@@ -152,11 +152,11 @@ const PlaceOrder = () => {
       );
     }
 
-      useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    }
-  }, [token, navigate]);
+    useEffect(() => {
+      if (!token) {
+        navigate("/login");
+      }
+    }, [token, navigate]);
   };
 
   return (
@@ -167,7 +167,13 @@ const PlaceOrder = () => {
       {/* Left Side */}
       <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
         <div className="text-xl sm:text-2xl my-3">
-          <Title text1={"DELIVERY"} text2={"INFORMATION"} />
+          <h1 className="text-3xl sm:text-4xl md:text-4xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
+            Delivery Information
+          </h1>
+
+          <p className="text-gray-500 text-sm sm:text-base">
+            Please fill in your delivery details below.
+          </p>
         </div>
         <div className="flex gap-3">
           <input
@@ -264,8 +270,10 @@ const PlaceOrder = () => {
         </div>
 
         <div className="mt-12">
-          <div className="text-xl sm:text-2xl my-3">
-            <Title text1={"PAYMENT"} text2={"METHOD"} />
+          <div className="my-5">
+          <h1 className="text-3xl sm:text-3xl md:text-3xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
+              Payment Method
+            </h1>
           </div>
           <div className="flex gap-3 flex-col lg:flex-row">
             <div

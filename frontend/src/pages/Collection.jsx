@@ -115,7 +115,7 @@ const Collection = () => {
         {/* Main Product Area */}
         <main className="flex-1">
           <div className="flex flex-col sm:flex-row justify-between items-start pb-5">
-            <h1 className="text-2xl sm:text-xl md:text-2xl lg:text-2xl font-semibold text-gray-700 tracking-tight">
+          <h1 className="text-3xl sm:text-3xl md:text-3xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
               Our Collections
             </h1>
           </div>

@@ -45,10 +45,11 @@ const CircularGallerySection = () => {
           scrollEase={0.02}
         />
       </div>
-
-      {/* 🔘 Optional CTA */}
+      {/* 📦 Call to Action */}
       <div className="mt-8">
-        <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-medium">Shop Our Best Sellers →</p>
+        <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+          Checkout Our Collections →
+        </p>
       </div>
     </div>
   );

@@ -47,7 +47,9 @@ const Orders = () => {
   return (
     <div className="border-t px-4 sm:px-6 md:px-6 lg:px-16 py-12">
       <div className="text-2xl text-center mb-8">
-        <Title text1="MY" text2="ORDERS" />
+        <h1 className="text-3xl sm:text-3xl md:text-3xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
+          My Orders
+        </h1>
       </div>
 
       {loading && (

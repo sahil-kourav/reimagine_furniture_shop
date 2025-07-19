@@ -18,6 +18,7 @@ import Furniture_Product_1  from "./Furniture_Product_1.mp4";
 import Furniture_Product_2  from "./Furniture_Product_2.mp4";
 import Furniture_Product_3  from "./Furniture_Product_3.mp4";
 import Furniture_Product_4  from "./Furniture_Product_4.mp4";
+import brand_promotion from "./brand_promotion.mp4";
 import firstscroll  from "./first-scroll.avif";
 import secondscroll  from "./second-scroll.avif";
 
@@ -28,6 +29,7 @@ export const assets = {
     Furniture_Product_2,
     Furniture_Product_3,
     Furniture_Product_4,
+    brand_promotion,
     about_video,
     // main_img,
     firstscroll,
