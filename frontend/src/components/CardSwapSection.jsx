@@ -50,7 +50,7 @@ const CardSwapSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: true }}
-          className="relative h-[300px] sm:h-[380px] md:h-[470px] lg:h-[560px] w-full max-w-xs sm:max-w-sm md:max-w-md flex justify-center items-center order-2 lg:order-none"
+          className="relative min-h-[360px] sm:min-h-[480px] md:min-h-[560px] lg:min-h-[600px] h-auto w-full max-w-xs sm:max-w-sm md:max-w-md flex justify-center items-center order-2 lg:order-none"
         >
           <div
             className="absolute bottom-0 right-0 origin-bottom-right transform overflow-visible"

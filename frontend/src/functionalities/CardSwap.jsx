@@ -172,7 +172,7 @@ const CardSwap = ({
   return (
     <div  
       ref={container}
-      className="absolute bottom-0 right-14 md:bottom-10 md:right-28 lg:bottom-0 lg:right-0 overflow-visible max-[768px]:translate-x-[25%] max-[768px]:translate-y-[25%] max-[768px]:scale-[0.75] max-[480px]:translate-x-[25%] max-[480px]:translate-y-[25%] max-[480px]:scale-[0.55]"
+      className="absolute bottom-10 right-16 md:bottom-10 md:right-28 lg:bottom-0 lg:right-0 overflow-visible max-[768px]:translate-x-[25%] max-[768px]:translate-y-[25%] max-[768px]:scale-[0.75] max-[480px]:translate-x-[25%] max-[480px]:translate-y-[25%] max-[480px]:scale-[0.55]"
       style={{ width, height }}
     >
       {rendered}

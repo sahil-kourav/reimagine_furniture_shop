@@ -14,7 +14,7 @@ const Newsletter = () => {
         </h2>
 
         <p className="text-lg text-gray-600 font-light mb-10 max-w-md mx-auto">
-          Subscribe now and enjoy <span className="font-semibold text-black">20% off</span> your first order, plus exclusive access to our newest arrivals.
+          Subscribe now and enjoy 20% off your first order, plus exclusive access to our newest arrivals.
         </p>
 
         <form className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-3 bg-white border border-gray-300 rounded-lg p-2 sm:p-1 shadow-md max-w-xl mx-auto">

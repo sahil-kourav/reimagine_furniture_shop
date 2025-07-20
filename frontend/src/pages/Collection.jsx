@@ -82,7 +82,9 @@ const Collection = () => {
           <div className="flex justify-between items-center sm:hidden border p-2 rounded-md bg-gray-50">
             <h2 className="ml-2 font-medium text-gray-700">Shop by Category</h2>
             <img
-              className={`w-2 transition-transform duration-300 ${showFilter ? "rotate-90" : ""}`}
+              className={`w-2 transition-transform duration-300 ${
+                showFilter ? "rotate-90" : ""
+              }`}
               src={assets.dropdown_icon}
               onClick={() => setShowFilter(!showFilter)}
               alt="toggle"
@@ -90,21 +92,34 @@ const Collection = () => {
           </div>
 
           {/* Category Filters */}
-          <div className={`mt-4 sm:block ${showFilter ? "block" : "hidden"} transition-all`}>
+          <div
+            className={`mt-4 sm:block ${
+              showFilter ? "block" : "hidden"
+            } transition-all`}
+          >
             <div className="border rounded-md p-4 shadow-sm">
               <h2 className="text-md font-semibold mb-4 text-gray-700">
                 Select Category
               </h2>
-              <div className="flex flex-col gap-3 text-sm text-gray-800">
-                {["Sofa", "Bed", "DinningSet", "Wardrobe"].map((cat) => (
-                  <label key={cat} className="flex items-center gap-2">
+              <div className="flex flex-col gap-2 text-sm text-gray-700">
+                {[
+                  { label: "Kids Furniture", value: "kids-furniture" },
+                  { label: "Living Room Furniture", value: "living-room-furniture" },
+                  { label: "Bedroom Furniture", value: "bedroom-furniture" },
+                  { label: "Dining & Kitchen", value: "dining-kitchen" },
+                  { label: "Outdoor Furniture", value: "outdoor-furniture" },
+                  { label: "Storage & Organizers", value: "storage-organizers" },
+                  { label: "Study Tables & Chairs", value: "study-tables-chairs" },
+                  { label: "Wardrobes", value: "wardrobes" }
+                ].map((cat) => (
+                  <label key={cat.value} className="flex items-center gap-2">
                     <input
                       type="checkbox"
-                      value={cat}
+                      value={cat.value}
                       onChange={toggleCategory}
                       className="accent-black w-4 h-4"
                     />
-                    {cat.replace(/([A-Z])/g, " $1")}
+                    {cat.label}
                   </label>
                 ))}
               </div>
@@ -114,8 +129,8 @@ const Collection = () => {
 
         {/* Main Product Area */}
         <main className="flex-1">
-            <div className='flex justify-between text-base sm:text-2xl mb-4'>
-               <Title text1={"ALL"} text2={"COLLECTIONS"} />
+          <div className="flex justify-between text-base sm:text-2xl mb-4">
+            <Title text1={"ALL"} text2={"COLLECTIONS"} />
           </div>
 
           {/* Product Grid */}

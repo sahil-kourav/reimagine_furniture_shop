@@ -6,7 +6,7 @@ const CircularGallerySection = () => {
     <div className="bg-gradient-to-br from-[#1f1f27] to-[#2c2c38] px-4 sm:px-6 md:px-10 lg:px-20 py-20 w-full min-h-screen flex flex-col items-center justify-center text-white">
       {/* 💫 Hero Content Section */}
       <div className="text-center max-w-4xl">
-        <p className="text-emerald-400 uppercase text-sm tracking-widest font-semibold mb-3">
+        <p className="text-gray-400 uppercase text-sm tracking-widest font-semibold mb-3">
           — Timeless Comfort, Unmatched Craft
         </p>
         <h2 className="text-3xl sm:text-3xl md:text-5xl mt-8 font-extrabold tracking-tight text-white leading-tight mb-5">
@@ -25,8 +25,8 @@ const CircularGallerySection = () => {
         <CircularGallery
           bend={0}
           textColor="#ffffff"
-          borderRadius={0.05}
-          scrollEase={0.02}
+          borderRadius={0.02}
+          scrollEase={0.4}
         />
       </div>
       {/* 📦 Call to Action */}

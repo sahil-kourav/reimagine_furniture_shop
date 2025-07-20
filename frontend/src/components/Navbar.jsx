@@ -42,9 +42,13 @@ const Navbar = () => {
     <>
       {/* Desktop Navbar */}
       <div className="hidden sm:flex items-center justify-between px-12 md:px-8 py-4 shadow-sm border-b bg-white font-medium sticky top-0 z-50">
-        <NavLink to="/" className="text-2xl font-bold text-gray-800">
+        {/* <NavLink to="/" className="text-2xl font-bold text-gray-800">
           NestCraft
-        </NavLink>
+        </NavLink> */}
+
+        <NavLink to='/'><img className='w-32' src={assets.logo} alt="" /></NavLink>
+
+        
 
         <ul className="flex gap-6 text-md text-gray-700">
           <NavLink
@@ -151,9 +155,11 @@ const Navbar = () => {
 
       {/* Mobile Navbar */}
       <div className="flex sm:hidden items-center justify-between px-4 py-4 shadow-sm border-b bg-white font-medium sticky top-0 z-50">
-        <NavLink to="/" className="text-xl font-bold text-gray-800">
+        {/* <NavLink to="/" className="text-xl font-bold text-gray-800">
           NestCraft
-        </NavLink>
+        </NavLink> */}
+
+        <NavLink to='/'><img className='w-28' src={assets.logo} alt="" /></NavLink>
         <div className="flex items-center gap-5">
           {/* Search */}
           <img
@@ -218,21 +224,21 @@ const Navbar = () => {
 
           <NavLink
             onClick={() => setVisible(false)}
-            className="py-3 px-6 border-b hover:bg-gray-50"
+            className="py-3 px-6 border-b"
             to="/"
           >
             Home
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}
-            className="py-3 px-6 border-b hover:bg-gray-50"
+            className="py-3 px-6 border-b"
             to="/collection"
           >
             Collection
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}
-            className="py-3 px-6 border-b hover:bg-gray-50"
+            className="py-3 px-6 border-b"
             to="/about"
           >
             About
@@ -245,7 +251,7 @@ const Navbar = () => {
                   navigate("/orders");
                   setVisible(false);
                 }}
-                className="py-3 px-6 border-b text-left hover:bg-gray-50"
+                className="py-3 px-6 border-b text-left"
               >
                 Orders
               </button>
@@ -254,7 +260,7 @@ const Navbar = () => {
                   logout();
                   setVisible(false);
                 }}
-                className="py-3 px-6 border-b text-left text-red-500 hover:bg-red-50"
+                className="py-3 px-6 border-b text-left text-red-500"
               >
                 Logout
               </button>
@@ -265,7 +271,7 @@ const Navbar = () => {
                 navigate("/login");
                 setVisible(false);
               }}
-              className="py-3 px-6 border-b text-left text-green-600 hover:bg-green-50"
+              className="py-3 px-6 border-b text-left text-red-500"
             >
               Login / Register
             </button>
