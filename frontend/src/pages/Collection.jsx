@@ -114,10 +114,8 @@ const Collection = () => {
 
         {/* Main Product Area */}
         <main className="flex-1">
-          <div className="flex flex-col sm:flex-row justify-between items-start pb-5">
-          <h1 className="text-3xl sm:text-3xl md:text-3xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
-              Our Collections
-            </h1>
+            <div className='flex justify-between text-base sm:text-2xl mb-4'>
+               <Title text1={"ALL"} text2={"COLLECTIONS"} />
           </div>
 
           {/* Product Grid */}

@@ -162,16 +162,15 @@ const PlaceOrder = () => {
   return (
     <form
       onSubmit={onSubmitHandler}
-      className="flex flex-col sm:flex-row justify-between px-4 sm:px-6 md:px-8 lg:px-8 py-4 gap-5 sm:pt-14 min-h-[80vh] border-t mb-20"
+      className="flex flex-col sm:flex-row justify-between px-8 sm:px-6 md:px-8 lg:px-12 py-4 gap-5 sm:pt-14 min-h-[80vh] border-t mb-20"
     >
       {/* Left Side */}
       <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
-        <div className="text-xl sm:text-2xl my-3">
-          <h1 className="text-3xl sm:text-4xl md:text-4xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
-            Delivery Information
-          </h1>
-
-          <p className="text-gray-500 text-sm sm:text-base">
+        <div className="my-2">
+          <div className="text-xl sm:text-2xl font-semibold">
+            <Title text1="DELIVERY" text2="INFORMATION" />
+          </div>
+          <p className="text-gray-500 text-sm sm:text-base -mt-3">
             Please fill in your delivery details below.
           </p>
         </div>
@@ -270,26 +269,18 @@ const PlaceOrder = () => {
         </div>
 
         <div className="mt-12">
-          <div className="my-5">
-          <h1 className="text-3xl sm:text-3xl md:text-3xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
-              Payment Method
-            </h1>
-          </div>
-          <div className="flex gap-3 flex-col lg:flex-row">
+          <Title text1={"PAYMENT"} text2={"METHOD"} />
+          <div className="flex gap-3 mt-3 flex-col lg:flex-row">
             <div
               onClick={() => setMethod("razorpay")}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
             >
               <p
                 className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "razorpay" ? "bg-black" : ""
+                  method === "razorpay" ? "bg-green-400" : ""
                 }`}
               ></p>
-              <img
-                className="h-5 mx-4"
-                src={assets.razorpay_logo}
-                alt="Razorpay"
-              />
+              <img className="h-5 mx-4" src={assets.razorpay_logo} alt="" />
             </div>
             <div
               onClick={() => setMethod("cod")}
@@ -297,10 +288,10 @@ const PlaceOrder = () => {
             >
               <p
                 className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "cod" ? "bg-black" : ""
+                  method === "cod" ? "bg-green-400" : ""
                 }`}
               ></p>
-              <p className="text-gray-500 text-sm font-medium mx-4">
+              <p className=" text-gray-500 text-sm font-medium mx-4">
                 CASH ON DELIVERY
               </p>
             </div>

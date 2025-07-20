@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import ProductItem from "./ProductItem";
+import Title from "../components/Title";
 
 const BestSeller = () => {
   const { products } = useContext(ShopContext);
@@ -15,9 +16,12 @@ const BestSeller = () => {
     <div className="w-full min-h-screen py-20">
       <div className="text-center text-3xl">
         <div className="text-center px-4 sm:px-6 md:px-8 lg:px-16 py-6">
-          <h1 className="text-3xl sm:text-4xl md:text-4xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
+          {/* <h1 className="text-3xl sm:text-4xl md:text-4xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
             Best Sellers
-          </h1>
+          </h1> */}
+
+          <Title text1={"BEST"} text2={"SELLERS"} />
+
           <p className="max-w-3xl mx-auto mt-5 px-2 md:px-4 lg:px-2 text-lg sm:text-base md:text-lg lg:text-md text-gray-600 leading-relaxed text-center">
             Discover our most loved and top-selling products, handpicked by our
             happy customers. Quality meets style.

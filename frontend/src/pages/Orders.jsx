@@ -9,9 +9,8 @@ const Orders = () => {
   const [loading, setLoading] = useState(false);
 
   const fetchOrders = async () => {
+    if (!token) return;
     try {
-      if (!token) return;
-
       setLoading(true);
       const { data } = await axios.post(
         `${backendUrl}/api/order/userorders`,
@@ -30,7 +29,6 @@ const Orders = () => {
             amount: order.amount,
           }))
         );
-
         setOrders(allItems.reverse());
       }
     } catch (error) {
@@ -45,93 +43,90 @@ const Orders = () => {
   }, [token]);
 
   return (
-    <div className="border-t px-4 sm:px-6 md:px-6 lg:px-16 py-12">
-      <div className="text-2xl text-center mb-8">
-        <h1 className="text-3xl sm:text-3xl md:text-3xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
-          My Orders
-        </h1>
+    <div className="border-t pt-16 px-4 sm:px-6 md:px-10 lg:px-20 py-12 bg-white min-h-screen">
+      <div className="text-2xl font-semibold text-center text-gray-800">
+        <Title text1="MY" text2="ORDERS" />
+        <p className="text-center text-gray-700 text-sm font-light mb-12">
+          Your order updates automatically with every status change.
+        </p>
       </div>
 
-      {loading && (
-        <p className="text-center my-6 text-gray-500">Loading orders...</p>
-      )}
-
-      {!loading && orders.length === 0 && (
-        <p className="text-center my-6 text-gray-500">No orders found.</p>
-      )}
-
-      <div className="space-y-8">
-        {orders.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col md:flex-row items-around gap-6 border-t pt-6 pb-4 ml-2 mr-2 text-gray-700"
-          >
-            {/* Product Image and Info */}
-            <div className="flex items-center gap-6 flex-1">
-              <img
-                className="w-28 h-44 object-cover rounded-md"
-                src={item.image?.[0] || "/placeholder.png"}
-                alt={item.name}
-              />
-              <div className="flex flex-col gap-1 w-full">
-                <p className="text-xl font-semibold">{item.name}</p>
-
-                <p className="text-sm font-medium">
-                  Quantity:{" "}
-                  <span className="font-semibold">{item.quantity}</span>
-                </p>
-
-                <p className="text-sm font-medium">
-                  Date:{" "}
-                  <span className="font-semibold">
-                    {new Date(item.date).toDateString()}
-                  </span>
-                </p>
-                <p className="text-sm font-medium">
-                  Payment:{" "}
-                  <span className="font-semibold">{item.paymentMethod}</span>
-                </p>
-                <p className="text-sm font-medium">
-                  Product Price:{" "}
-                  <span className="font-semibold">
-                    {item.price.toLocaleString("en-IN", {
-                      style: "currency",
-                      currency: "INR",
-                      maximumFractionDigits: 0,
-                    })}
-                  </span>
-                </p>
-                
-                <p className="text-sm font-medium">
-                  Total Amount:{" "}
-                  <span className="font-semibold">
-                    {item.amount.toLocaleString("en-IN", {
-                      style: "currency",
-                      currency: "INR",
-                      maximumFractionDigits: 0,
-                    })}
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            {/* Order Status and Update Button */}
-            <div className="md:w-1/2 flex justify-between mt-4 items-center ">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                <p className="text-sm font-medium">{item.status}</p>
+      {loading ? (
+        <p className="text-center py-10 text-gray-500 animate-pulse">
+          Loading Orders...
+        </p>
+      ) : orders.length === 0 ? (
+        <p className="text-center py-10 text-gray-500">No orders found.</p>
+      ) : (
+        <div>
+          {orders.map((item, index) => (
+            <div
+              key={index}
+              className="w-full py-5 flex flex-col sm:flex-row sm:items-center justify-between border-t-2"
+            >
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-6">
+                {/* Product Details */}
+                <div className="flex items-start gap-5">
+                  <img
+                    src={item.image?.[0] || "/placeholder.png"}
+                    alt={item.name}
+                    className="w-24 h-28 object-cover"
+                  />
+                  <div className="text-gray-800 space-y-[0.2rem] ">
+                    <p className="text-md font-semibold leading-snug">
+                      {item.name}
+                    </p>
+                    <p className="text-sm">
+                      Quantity:{" "}
+                      <span className="font-semibold">{item.quantity}</span>
+                    </p>
+                    <p className="text-sm">
+                      Total Amount:{" "}
+                      <span className="font-semibold">
+                        {item.price.toLocaleString("en-IN", {
+                          style: "currency",
+                          currency: "INR",
+                          maximumFractionDigits: 0,
+                        })}
+                      </span>
+                    </p>
+                    <p className="text-sm">
+                      Date:{" "}
+                      <span className="font-semibold">
+                        {new Date(item.date).toLocaleDateString("en-IN", {
+                          day: "2-digit",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </span>
+                    </p>
+                    <p className="text-sm">
+                      Payment Method:{" "}
+                      <span className="font-semibold">
+                        {item.paymentMethod}
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <button
-                onClick={fetchOrders}
-                className="border px-4 py-2 text-sm font-medium rounded-sm hover:bg-gray-100"
-              >
-                Refresh Order Status
-              </button>
+              <div className="md:w-1/2 flex justify-between mt-4 items-center ">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  <p className="text-sm font-medium">{item.status}</p>
+                </div>
+
+                <button
+                  onClick={fetchOrders}
+                  className="border px-4 py-2 text-sm font-medium rounded-sm hover:bg-gray-100"
+                >
+                  Refresh Order
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

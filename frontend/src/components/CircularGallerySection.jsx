@@ -1,19 +1,3 @@
-// import React from "react";
-// import CircularGallery from "../functionalities/CircularGallery";
-
-// const CircularGallerySection = () => {
-//   return (
-//     <div
-//       className="bg-[#1f1f27] px-2 sm:px-6 md:px-10 lg:px-20 py-10 w-full h-screen overflow-hidden flex items-center justify-center"
-//     >
-//       <CircularGallery bend={0} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02}>
-//       </CircularGallery>
-//     </div>
-//   );
-// };
-
-// export default CircularGallerySection;
-
 import React from "react";
 import CircularGallery from "../functionalities/CircularGallery";
 

@@ -42,6 +42,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import ProductItem from "./ProductItem";
+import Title from "../components/Title";
 
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
@@ -54,12 +55,8 @@ const LatestCollection = () => {
   return (
     <div className="w-full min-h-screen py-20">
       <div className="text-center text-3xl">
-        <div className="text-center px-4 sm:px-6 md:px-8 lg:px-16 py-6">
-
-          <h1 className="text-3xl sm:text-4xl md:text-4xl font-serif font-semibold text-gray-800 tracking-tight leading-tight">
-            Latest Collections
-          </h1>
-
+        <div className="text-center py-8 text-3xl">
+          <Title text1={"LATEST"} text2={"COLLECTIONS"} />
           <p className="max-w-3xl mx-auto mt-5 px-2 md:px-4 lg:px-2 text-lg sm:text-base md:text-lg lg:text-md text-gray-600 leading-relaxed text-center">
             Explore our newest arrivals, designed to elevate your space with
             modern style and unmatched comfort.

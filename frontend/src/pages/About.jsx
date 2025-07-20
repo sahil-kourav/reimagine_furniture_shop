@@ -6,6 +6,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import { assets } from "../assets/assets";
+import Title from "../components/Title";
 
 const features = [
   {
@@ -70,9 +71,9 @@ const AboutUs = () => {
         
         {/* Text Content */}
         <div className="w-full md:w-[50%] space-y-5">
-          <h2 className="text-3xl font-bold text-center md:text-left text-gray-800">
-            About Us
-          </h2>
+         <div className='text-2xl text-center pt-8 border-t'>
+        <Title text1={'ABOUT'} text2={'US'} />
+      </div>
           <p className="text-gray-600 text-md md:text-base leading-relaxed">
             At NestCraft, we believe your home should tell your story.
             Our mission is to craft more than just furniture — we create
@@ -103,11 +104,10 @@ const AboutUs = () => {
       </div>
 
       {/* Why Choose Us */}
-      <div className="text-center py-10 px-4">
-        <h2 className="text-3xl font-bold text-gray-800">
-          Why Choose Us
-        </h2>
-        <div className="mt-3 h-[2px] w-24 mx-auto bg-gradient-to-r from-[#3bc9db] via-blue-500 to-[#3bc9db] rounded-full" />
+      <div className="text-center py-6 px-4">
+        <div className='text-center text-base sm:text-2xl mb-4'>
+             <Title text1={"WHY"} text2={"CHOOSE US"} />
+          </div>
       </div>
 
       {/* Features Grid */}

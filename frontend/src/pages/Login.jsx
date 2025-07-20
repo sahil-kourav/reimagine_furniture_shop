@@ -85,10 +85,10 @@ const Login = () => {
   }, [token]);
 
   return (
-    <form onSubmit={onSubmitHandler} className="flex flex-col items-center w-[90%] sm:max-w-md mx-auto mt-14 gap-6 text-gray-800">
+    <form onSubmit={onSubmitHandler} className="flex flex-col items-center w-[90%] sm:max-w-md mx-auto my-20 gap-6 text-gray-800">
       <div className="inline-flex items-center gap-2 mb-6 mt-10">
-        <p className="font-bold text-3xl">{currentState}</p>
-        <hr className="border-none h-[1.5px] w-8 bg-gray-800" />
+        <p className="prata-regular font-bold text-3xl">{currentState}</p>
+          <hr className=' border-none h-[1.5px] w-8 bg-gray-800' />
       </div>
 
       {currentState === 'Sign Up' && (
@@ -132,19 +132,19 @@ const Login = () => {
         required
       />
 
-      <div className="w-full flex justify-between text-sm mt-[-8px]">
+      <div className="w-full flex justify-between text-sm mt-[-12px]">
         {currentState === 'Login' ? (
-          <p onClick={() => setCurrentState('Sign Up')} className="cursor-pointer underline text-blue-500">
+          <p onClick={() => setCurrentState('Sign Up')} className="cursor-pointer">
             Create account
           </p>
         ) : (
-          <p onClick={() => setCurrentState('Login')} className="cursor-pointer underline text-blue-500">
+          <p onClick={() => setCurrentState('Login')} className="cursor-pointer">
             Login here
           </p>
         )}
       </div>
 
-      <button className="bg-blue-600 text-white font-medium px-8 py-3 mt-6 rounded-md hover:bg-blue-700 transition-all">
+     <button type='submit' className='bg-black text-white font-light px-8 py-2 mt-4'>
         {currentState === 'Login' ? 'Sign In' : 'Sign Up'}
       </button>
     </form>

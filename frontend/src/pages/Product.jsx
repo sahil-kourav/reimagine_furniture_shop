@@ -8,109 +8,161 @@ import OurPolicy from "../components/OurPolicy";
 const Product = () => {
   const { productId } = useParams();
   const { products, currency, addToCart } = useContext(ShopContext);
-  const [productData, setProductData] = useState(false);
+  const [productData, setProductData] = useState(null);
   const [image, setImage] = useState("");
 
-  const fetchProductData = async () => {
-    products.map((item) => {
-      if (item.id === productId) {
-        setProductData(item);
-        setImage(item.image[0]);
-        return null;
-      }
-    });
-  };
-
   useEffect(() => {
+    const fetchProductData = () => {
+      const found = products.find((item) => item.id === productId);
+      if (found) {
+        setProductData(found);
+        setImage(found.image[0]);
+      }
+    };
+
     fetchProductData();
-  }, [productId]);
+  }, [productId, products]);
+
+  if (!productData || !productData.image) {
+    return <div className="min-h-screen px-4 py-10">Loading product...</div>;
+  }
 
   return productData ? (
-    <div className="border-t-2 px-4 sm:px-6 md:px-8 lg:px-8 py-6">
-      <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
+    <div className="border-t-2 px-4 sm:px-6 md:px-10 lg:px-14 py-8 pt-10 transition-opacity ease-in duration-500 opacity-100">
+      {/* Image + Product Info */}
+      <div className="flex gap-12 flex-col sm:flex-row">
+        {/* Image Gallery */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
             {productData.image.map((item, index) => (
               <img
                 key={index}
                 onClick={() => setImage(item)}
-                className="w-[24%]  sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer"
+                className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer"
                 src={item}
-                alt=""
+                alt={`preview-${index}`}
               />
             ))}
           </div>
-
-           <div className="w-full sm:w-[80%]">
-            <img className="w-full h-[80%]" src={image} alt="" />
+          <div className="w-full sm:w-[80%]">
+            <img className="w-full h-auto" src={image} alt="selected" />
           </div>
-
         </div>
-        {/* -------- Product Info ---------- */}
+
+        {/* Product Info */}
         <div className="flex-1">
           <h1 className="font-medium text-2xl mt-2">{productData.name}</h1>
           <div className="flex items-center gap-1 mt-2">
-            <img className="w-3.5" src={assets.star_icon} alt="" />
-            <img className="w-3.5" src={assets.star_icon} alt="" />
-            <img className="w-3.5" src={assets.star_icon} alt="" />
-            <img className="w-3.5" src={assets.star_icon} alt="" />
-            <img className="w-3.5" src={assets.star_dull_icon} alt="" />
-            <p className="pl-2">(122)</p>
+            {[...Array(4)].map((_, i) => (
+              <img
+                key={i}
+                className="w-3.5"
+                src={assets.star_icon}
+                alt="star"
+              />
+            ))}
+            <img
+              className="w-3.5"
+              src={assets.star_dull_icon}
+              alt="half-star"
+            />
+            <p className="pl-2 text-sm text-gray-500">(122)</p>
           </div>
-          {/* <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p> */}
-          <p className="mt-5 text-lg font-medium">
+
+          <p className="mt-5 text-3xl font-medium">
             {productData.price.toLocaleString("en-IN", {
               style: "currency",
               currency: "INR",
               maximumFractionDigits: 0,
             })}
           </p>
-
-          <p className="mt-3 text-gray-500 md:w-4/5">
+          <p className="mt-5 pr-4 text-gray-600 text-md md:w-5/5">
             {productData.description}
           </p>
 
           <button
             onClick={() => addToCart(productData.id)}
-            className="bg-black text-white px-8 mt-5 py-3 text-sm active:bg-gray-700"
+            className="bg-black text-white px-8 py-3 mt-5 text-sm active:bg-gray-700"
           >
-            ADD TO CART
+            {" "}
+            ADD TO CART{" "}
           </button>
 
-          <hr className="mt-5 sm:w-4/5" />
+          <hr className="mt-8 sm:w-5/5" />
 
-          <div className="text-md text-gray-500 mt-5 flex flex-col gap-1">
-             <p>✅ 100% authentic and original product</p>
-             <p>💵 Cash on Delivery available for your convenience</p>
-             <p>🔁 Enjoy hassle-free returns and exchanges within 7 days</p>
+          <div className="text-sm text-gray-600 mt-5 flex flex-col gap-1">
+            <p>100% Original product.</p>
+            <p>Cash on delivery is available on this product.</p>
+            <p>Easy return and exchange policy within 7 days.</p>
           </div>
         </div>
       </div>
 
-      <div className="mt-8">
+      {/* Tabs Section */}
+      <div className="mt-20">
         <div className="flex">
           <b className="border px-5 py-3 text-sm">Description</b>
-          <p className="border px-5 py-3 text-sm">Reviews (122)</p>
-        </div>
-        <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
-          <p>
-            An e-commerce website is an online platform that facilitates the
-            buying and selling of products or services over the internet. It
-            serves as a virtual marketplace where businesses and individuals can
-            showcase their products, interact with customers, and conduct
-            transactions without the need for a physical presence. E-commerce
-            websites have gained immense popularity due to their convenience,
-            accessibility, and the global reach they offer.
+          <p className="border px-5 py-3 text-sm text-gray-500">
+            Reviews (122)
           </p>
+        </div>
+        <div className="border px-6 py-6 text-[0.95rem] text-sm text-gray-600 space-y-3">
           <p>
-            E-commerce websites typically display products or services along
-            with detailed descriptions, images, prices. Each product usually has its own
-            dedicated page with relevant information.
+            At our furniture store, we bring you beautifully crafted pieces that
+            blend functionality with aesthetic appeal. Whether you're furnishing
+            a cozy apartment or an expansive home, our collection caters to
+            every style and need.
+          </p>
+
+          <p>
+            Our services include seamless online ordering, expert customer
+            support, and fast, safe delivery right to your doorstep. From living
+            room essentials to modular kitchen cabinets, each item is handpicked
+            for durability and design excellence.
+          </p>
+
+          <p>
+            We believe quality is more than just material — it's in the comfort,
+            longevity, and craftsmanship of every piece. All our furniture is
+            made using premium woods, eco-friendly finishes, and modern
+            manufacturing standards to ensure you get nothing but the best.
+          </p>
+
+          <p>
+            Experience the ease of shopping with detailed product descriptions,
+            realistic photos, and clear pricing — all tailored to help you make
+            confident decisions from the comfort of your home.
           </p>
         </div>
       </div>
- <OurPolicy />
-      <RelatedProducts category={productData.category} />
+
+      {/* Shipping Info */}
+      <div className="flex flex-col md:flex-row items-center gap-6 mt-12 bg-gray-50 p-6 rounded-lg">
+        <div className="w-full md:w-1/2">
+          <img
+            src={assets.shipping}
+            alt="Furniture Delivery"
+            className="w-full h-auto rounded-md object-cover"
+          />
+        </div>
+        <div className="w-full md:w-1/2 text-center md:text-left space-y-3">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 leading-snug">
+            Fast, Safe & Affordable Shipping
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base">
+            We ensure your furniture reaches you safely and on time — with zero
+            hassle. Our delivery network is trusted, efficient, and designed to
+            protect your product at every step. Your dream setup, now just a
+            doorstep away.
+          </p>
+        </div>
+      </div>
+
+      {/* Policy & Related Products */}
+      <div className="mt-12">
+        <OurPolicy />
+        <RelatedProducts category={productData.category} />
+      </div>
     </div>
   ) : (
     <div className=" opacity-0"></div>

@@ -6,9 +6,7 @@ const ProductItem = ({ id, image, name, price }) => {
   const { currency } = useContext(ShopContext);
 
   return (
-    <Link to={`/product/${id}`} onClick={() => window.scrollTo(0, 0)}
-      className="group relative w-full max-w-[280px] mx-auto overflow-hidden bg-white transition duration-300 ease-in-out"
-    >
+    <Link to={`/product/${id}`} onClick={() => window.scrollTo(0, 0)} className='text-gray-700 cursor-pointer'>
       {/* Image section */}
       <div className="relative overflow-hidden">
         <img
@@ -17,7 +15,6 @@ const ProductItem = ({ id, image, name, price }) => {
            className="w-full h-64 object-fit hover:scale-110 transition ease-in-out"
         />
 
-        {/* Hover badge */}
         <span className="absolute top-3 left-3 bg-white/90 text-gray-800 text-[11px] px-2 py-[2px] rounded-full font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Quick View
         </span>
