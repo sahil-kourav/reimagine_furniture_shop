@@ -13,9 +13,8 @@ a.active hr{
     font-family: Outfit;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+body {
+  overflow-x: hidden;
 }
 
 .prata-regular {
