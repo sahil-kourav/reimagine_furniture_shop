@@ -4,6 +4,8 @@ import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import RelatedProducts from "../components/RelatedProducts";
 import OurPolicy from "../components/OurPolicy";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Product = () => {
   const { productId } = useParams();
@@ -23,6 +25,14 @@ const Product = () => {
     fetchProductData();
   }, [productId, products]);
 
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh();
+  }, [productData]);
+
   if (!productData || !productData.image) {
     return <div className="min-h-screen px-4 py-10">Loading product...</div>;
   }
@@ -32,10 +42,14 @@ const Product = () => {
       {/* Image + Product Info */}
       <div className="flex gap-12 flex-col sm:flex-row">
         {/* Image Gallery */}
-        <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
+        <div
+          className="flex-1 flex flex-col-reverse gap-3 sm:flex-row"
+          data-aos="fade-right"
+        >
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
             {productData.image.map((item, index) => (
               <img
+                loading="lazy"
                 key={index}
                 onClick={() => setImage(item)}
                 className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer"
@@ -45,16 +59,22 @@ const Product = () => {
             ))}
           </div>
           <div className="w-full sm:w-[80%]">
-            <img className="w-full h-auto" src={image} alt="selected" />
+            <img
+              className="w-full h-auto"
+              loading="lazy"
+              src={image}
+              alt="selected"
+            />
           </div>
         </div>
 
         {/* Product Info */}
-        <div className="flex-1">
+        <div className="flex-1" data-aos="fade-left">
           <h1 className="font-medium text-2xl mt-2">{productData.name}</h1>
           <div className="flex items-center gap-1 mt-2">
             {[...Array(4)].map((_, i) => (
               <img
+                loading="lazy"
                 key={i}
                 className="w-3.5"
                 src={assets.star_icon}
@@ -62,6 +82,7 @@ const Product = () => {
               />
             ))}
             <img
+              loading="lazy"
               className="w-3.5"
               src={assets.star_dull_icon}
               alt="half-star"
@@ -99,7 +120,7 @@ const Product = () => {
       </div>
 
       {/* Tabs Section */}
-      <div className="mt-20">
+      {/* <div className="mt-20" data-aos="fade-up">
         <div className="flex">
           <b className="border px-5 py-3 text-sm">Description</b>
           <p className="border px-5 py-3 text-sm text-gray-500">
@@ -134,18 +155,28 @@ const Product = () => {
             confident decisions from the comfort of your home.
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Shipping Info */}
-      <div className="flex flex-col md:flex-row items-center gap-6 mt-12 bg-gray-50 p-6 rounded-lg">
-        <div className="w-full md:w-1/2">
+      <div
+        className="flex flex-col md:flex-row items-center gap-6 mt-12 p-6 rounded-lg"
+       
+      >
+        {/* Image Section */}
+        <div className="w-full md:w-1/2" data-aos="fade-right">
           <img
+            loading="lazy"
             src={assets.shipping}
             alt="Furniture Delivery"
             className="w-full h-auto rounded-md object-cover"
           />
         </div>
-        <div className="w-full md:w-1/2 text-center md:text-left space-y-3">
+
+        {/* Text Section */}
+        <div
+          className="w-full md:w-1/2 text-center md:text-left space-y-3"
+          data-aos="fade-left"
+        >
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 leading-snug">
             Fast, Safe & Affordable Shipping
           </h2>
@@ -159,7 +190,7 @@ const Product = () => {
       </div>
 
       {/* Policy & Related Products */}
-      <div className="mt-12">
+      <div className="mt-8">
         <OurPolicy />
         <RelatedProducts category={productData.category} />
       </div>

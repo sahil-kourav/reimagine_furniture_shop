@@ -86,6 +86,8 @@ const CardSwapSection = () => {
                           loop
                           muted
                           playsInline
+                          loading="lazy"
+                          data-aos="zoom-out"
                         />
                       </div>
                     </Card>

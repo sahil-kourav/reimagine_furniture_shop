@@ -3,6 +3,8 @@ import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -62,12 +64,21 @@ const Collection = () => {
     sortProduct();
   }, [sortType]);
 
+  useEffect(() => {
+  AOS.init({ duration: 1000, once: true });
+}, []);
+
+useEffect(() => {
+  AOS.refresh();
+}, [filterProducts]);
+
+
   return (
     <div className="py-10 min-h-screen transition-all duration-300">
       <div className="flex flex-col sm:flex-row gap-6 px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Sidebar */}
         <aside className="w-full sm:w-52">
-          <div className="flex flex-col sm:flex-row gap-4 mb-4">
+          <div className="flex flex-col sm:flex-row gap-4 mb-4" data-aos="fade-right">
             <select
               onChange={(e) => setSortType(e.target.value)}
               className="border text-sm rounded px-4 py-2 w-full sm:w-fit outline-none shadow-sm"
@@ -79,7 +90,7 @@ const Collection = () => {
           </div>
 
           {/* Filter Toggle (mobile) */}
-          <div className="flex justify-between items-center sm:hidden border p-2 rounded-md bg-gray-50">
+          <div className="flex justify-between items-center sm:hidden border p-2 rounded-md bg-gray-50" data-aos="fade-right">
             <h2 className="ml-2 font-medium text-gray-700">Shop by Category</h2>
             <img
               className={`w-2 transition-transform duration-300 ${
@@ -97,11 +108,11 @@ const Collection = () => {
               showFilter ? "block" : "hidden"
             } transition-all`}
           >
-            <div className="border rounded-md p-4 shadow-sm">
+            <div className="border rounded-md p-4 shadow-sm" data-aos="fade-right">
               <h2 className="text-md font-semibold mb-4 text-gray-700">
                 Select Category
               </h2>
-              <div className="flex flex-col gap-2 text-sm text-gray-700">
+              <div className="flex flex-col gap-2 text-sm text-gray-700 font-medium">
                 {[
                   { label: "Kids Furniture", value: "kids-furniture" },
                   { label: "Living Room Furniture", value: "living-room-furniture" },
@@ -129,7 +140,7 @@ const Collection = () => {
 
         {/* Main Product Area */}
         <main className="flex-1">
-          <div className="flex justify-between text-base sm:text-2xl mb-4">
+          <div className="flex justify-between text-base sm:text-2xl mb-4" data-aos="fade-right">
             <Title text1={"ALL"} text2={"COLLECTIONS"} />
           </div>
 
@@ -139,7 +150,9 @@ const Collection = () => {
               filterProducts.map((item, index) => (
                 <div
                   key={index}
-                  className="motion-safe:animate-fade-up transition-transform duration-500"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 30}
+                  className="transition-transform duration-500"
                 >
                   <ProductItem
                     name={item.name}

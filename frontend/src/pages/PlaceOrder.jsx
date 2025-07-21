@@ -5,6 +5,9 @@ import { assets } from "../assets/assets";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");
@@ -159,6 +162,11 @@ const PlaceOrder = () => {
     }, [token, navigate]);
   };
 
+  useEffect(() => {
+  AOS.init({ duration: 800, offset: 100, once: true });
+}, []);
+
+
   return (
     <form
       onSubmit={onSubmitHandler}
@@ -166,7 +174,7 @@ const PlaceOrder = () => {
     >
       {/* Left Side */}
       <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
-        <div className="my-2">
+        <div className="my-2" data-aos="fade-up">
           <div className="text-xl sm:text-2xl font-semibold">
             <Title text1="DELIVERY" text2="INFORMATION" />
           </div>
@@ -174,7 +182,7 @@ const PlaceOrder = () => {
             Please fill in your delivery details below.
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3" data-aos="fade-up" data-aos-easing="ease-in-out">
           <input
             required
             onChange={onChangeHandler}
@@ -194,6 +202,7 @@ const PlaceOrder = () => {
             placeholder="Last name"
           />
         </div>
+        <div data-aos="fade-up" data-aos-easing="ease-in-out">
         <input
           required
           onChange={onChangeHandler}
@@ -203,6 +212,8 @@ const PlaceOrder = () => {
           type="email"
           placeholder="Email address"
         />
+        </div>
+        <div data-aos="fade-up" data-aos-easing="ease-in-out">
         <input
           required
           onChange={onChangeHandler}
@@ -212,7 +223,8 @@ const PlaceOrder = () => {
           type="text"
           placeholder="Street"
         />
-        <div className="flex gap-3">
+        </div>
+        <div className="flex gap-3" data-aos="fade-up" data-aos-easing="ease-in-out">
           <input
             required
             onChange={onChangeHandler}
@@ -231,7 +243,7 @@ const PlaceOrder = () => {
             placeholder="State"
           />
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3" data-aos="fade-up" data-aos-easing="ease-in-out">
           <input
             required
             onChange={onChangeHandler}
@@ -251,6 +263,7 @@ const PlaceOrder = () => {
             placeholder="Country"
           />
         </div>
+        <div data-aos="fade-up" data-aos-easing="ease-in-out">
         <input
           required
           onChange={onChangeHandler}
@@ -260,6 +273,7 @@ const PlaceOrder = () => {
           type="number"
           placeholder="Phone"
         />
+        </div>
       </div>
 
       {/* Right Side */}
@@ -269,8 +283,10 @@ const PlaceOrder = () => {
         </div>
 
         <div className="mt-12">
+          <div data-aos="fade-right">
           <Title text1={"PAYMENT"} text2={"METHOD"} />
-          <div className="flex gap-3 mt-3 flex-col lg:flex-row">
+          </div>
+          <div className="flex gap-3 mt-3 flex-col lg:flex-row" data-aos="zoom-in">
             <div
               onClick={() => setMethod("razorpay")}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"

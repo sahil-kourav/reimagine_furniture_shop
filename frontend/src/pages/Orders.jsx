@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Orders = () => {
   const { backendUrl, token, currency } = useContext(ShopContext);
@@ -42,9 +44,17 @@ const Orders = () => {
     fetchOrders();
   }, [token]);
 
+  useEffect(() => {
+    fetchOrders();
+    AOS.init({ duration: 800, once: true });
+  }, [token]);
+
   return (
     <div className="border-t pt-16 px-4 sm:px-6 md:px-10 lg:px-20 py-12 bg-white min-h-screen">
-      <div className="text-2xl font-semibold text-center text-gray-800">
+      <div
+        className="text-2xl font-semibold text-center text-gray-800"
+        data-aos="fade-down"
+      >
         <Title text1="MY" text2="ORDERS" />
         <p className="text-center text-gray-700 text-sm font-light mb-12">
           Your order updates automatically with every status change.
@@ -62,6 +72,8 @@ const Orders = () => {
           {orders.map((item, index) => (
             <div
               key={index}
+              data-aos="fade-up"
+              data-aos-delay={`${index * 30}`}
               className="w-full py-5 flex flex-col sm:flex-row sm:items-center justify-between border-t-2"
             >
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-6">
@@ -70,6 +82,7 @@ const Orders = () => {
                   <img
                     src={item.image?.[0] || "/placeholder.png"}
                     alt={item.name}
+                    loading="lazy"
                     className="w-24 h-28 object-cover"
                   />
                   <div className="text-gray-800 space-y-[0.2rem] ">

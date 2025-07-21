@@ -13,6 +13,11 @@ a.active hr{
     font-family: Outfit;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 .prata-regular {
     font-family: "Prata", serif;
     font-weight: 400;
