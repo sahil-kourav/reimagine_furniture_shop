@@ -38,7 +38,7 @@ const Product = () => {
   }
 
   return productData ? (
-    <div className="border-t-2 px-4 sm:px-6 md:px-10 lg:px-14 py-8 pt-10 transition-opacity ease-in duration-500 opacity-100">
+    <div className="border-t-2 px-4 sm:px-6 md:px-10 lg:px-20 py-8 pt-10 transition-opacity ease-in duration-500 opacity-100">
       {/* Image + Product Info */}
       <div className="flex gap-12 flex-col sm:flex-row">
         {/* Image Gallery */}

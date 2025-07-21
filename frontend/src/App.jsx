@@ -53,8 +53,6 @@
 
 import React, { useEffect, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/Navbar";
@@ -74,24 +72,17 @@ const Verify = lazy(() => import("./pages/Verify"));
 const NotFound = lazy(() => import("./NotFound/NotFound"));
 
 const App = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 600,
-      once: true,
-    });
-  }, []);
+  
   return (
-    
-    <div w-full>
-    {/* //  < className='px-4 sm:px-[5vw] md:px-[5vw] lg:px-[7vw]'> */}
-
-      <ToastContainer />
-      <Navbar />
-      <SearchBar />
+      <div className="w-full max-w-screen">
 
       <Suspense
         fallback={<p className="text-center py-10 text-gray-500">Ohhhooo ohhhoooo!!!!!!!...</p>}
       >
+      <ToastContainer />
+      <Navbar />
+      <SearchBar />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<Collection />} />
@@ -104,9 +95,9 @@ const App = () => {
           <Route path="/verify" element={<Verify />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Suspense>
 
       <Footer />
+      </Suspense>
     </div>
   );
 };
