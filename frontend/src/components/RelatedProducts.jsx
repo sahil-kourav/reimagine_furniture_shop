@@ -74,7 +74,7 @@ const RelatedProducts = ({ category }) => {
   useEffect(() => {
     if (products.length > 0) {
       const filtered = products.filter((item) => item.category === category);
-      setRelated(filtered.slice(0, 5));
+      setRelated(filtered.slice(0, 8));
     }
   }, [products, category]);
 
@@ -87,7 +87,7 @@ const RelatedProducts = ({ category }) => {
         </p>
       </div>
 
-      <div className="grid mt-10 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
+      <div className="grid mt-10 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 gap-y-6">
         <Suspense fallback={<div className="text-center col-span-full">Loading...</div>}>
           {related.map((item, index) => (
             <div key={item.id} data-aos="fade-up" data-aos-delay={index * 30}>

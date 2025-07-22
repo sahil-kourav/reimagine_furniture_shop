@@ -34,7 +34,7 @@ const Product = () => {
   }, [productData]);
 
   if (!productData || !productData.image) {
-    return <div className="min-h-screen px-4 py-10">Loading product...</div>;
+    return <div className="min-h-screen px-4 py-10 text-center text-gray-500">Loading something magical... ✨</div>;
   }
 
   return productData ? (
@@ -118,44 +118,6 @@ const Product = () => {
           </div>
         </div>
       </div>
-
-      {/* Tabs Section */}
-      {/* <div className="mt-20" data-aos="fade-up">
-        <div className="flex">
-          <b className="border px-5 py-3 text-sm">Description</b>
-          <p className="border px-5 py-3 text-sm text-gray-500">
-            Reviews (122)
-          </p>
-        </div>
-        <div className="border px-6 py-6 text-[0.95rem] text-sm text-gray-600 space-y-3">
-          <p>
-            At our furniture store, we bring you beautifully crafted pieces that
-            blend functionality with aesthetic appeal. Whether you're furnishing
-            a cozy apartment or an expansive home, our collection caters to
-            every style and need.
-          </p>
-
-          <p>
-            Our services include seamless online ordering, expert customer
-            support, and fast, safe delivery right to your doorstep. From living
-            room essentials to modular kitchen cabinets, each item is handpicked
-            for durability and design excellence.
-          </p>
-
-          <p>
-            We believe quality is more than just material — it's in the comfort,
-            longevity, and craftsmanship of every piece. All our furniture is
-            made using premium woods, eco-friendly finishes, and modern
-            manufacturing standards to ensure you get nothing but the best.
-          </p>
-
-          <p>
-            Experience the ease of shopping with detailed product descriptions,
-            realistic photos, and clear pricing — all tailored to help you make
-            confident decisions from the comfort of your home.
-          </p>
-        </div>
-      </div> */}
 
       {/* Shipping Info */}
       <div

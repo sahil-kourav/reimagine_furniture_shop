@@ -11,18 +11,20 @@ const BestSeller = () => {
 
   useEffect(() => {
     const bestProduct = products.filter((item) => item.bestseller);
-    setBestSeller(bestProduct.slice(0, 5));
+    setBestSeller(bestProduct.slice(0, 8));
   }, [products]);
 
-   useEffect(() => {
+  useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
   return (
     <div className="w-full min-h-screen py-20">
       <div className="text-center text-3xl">
-        <div className="text-center px-4 sm:px-6 md:px-8 lg:px-16 py-6" 
-        data-aos="fade-up"
+        <div
+          className="text-center px-4 sm:px-6 md:px-8 lg:px-24 py-6"
+          data-aos="fade-up"
+          data-aos-delay="100"
         >
           <Title text1={"BEST"} text2={"SELLERS"} />
           <p className="max-w-3xl mx-auto mt-5 px-2 md:px-4 lg:px-2 text-lg sm:text-base md:text-lg lg:text-md text-gray-600 leading-relaxed text-center">
@@ -32,16 +34,24 @@ const BestSeller = () => {
         </div>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4 gap-y-6 px-4 md:px-8 lg:px-12">
+      <div
+        className="mt-12 px-4 md:px-10 lg:px-20 grid gap-x-6 gap-y-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4"
+        data-aos="fade-up"
+      >
         {bestSeller.map((item, index) => (
-            <div data-aos="zoom-in" data-aos-delay={index * 30} key={index}>
-          <ProductItem
+          <div
             key={index}
-            id={item.id}
-            name={item.name}
-            image={item.image}
-            price={item.price}
-          />
+            data-aos="fade-up"
+            data-aos-delay={index * 40}
+            className="transition-transform duration-300 hover:-translate-y-2"
+          >
+            <ProductItem
+              key={index}
+              id={item.id}
+              name={item.name}
+              image={item.image}
+              price={item.price}
+            />
           </div>
         ))}
       </div>
@@ -50,26 +60,6 @@ const BestSeller = () => {
 };
 
 export default BestSeller;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React, { useContext, useEffect, useState } from "react";
 // import { ShopContext } from "../context/ShopContext";

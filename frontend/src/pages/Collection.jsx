@@ -77,11 +77,11 @@ useEffect(() => {
     <div className="py-10 min-h-screen transition-all duration-300">
       <div className="flex flex-col sm:flex-row gap-6 px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Sidebar */}
-        <aside className="w-full sm:w-52">
+        <aside className="w-full sm:w-56">
           <div className="flex flex-col sm:flex-row gap-4 mb-4" data-aos="fade-right">
             <select
               onChange={(e) => setSortType(e.target.value)}
-              className="border text-sm rounded px-4 py-2 w-full sm:w-fit outline-none shadow-sm"
+              className="border text-sm rounded px-4 py-3 w-full sm:w-fit outline-none shadow-sm"
             >
               <option value="relavent">Sort by: Relevant</option>
               <option value="low-high">Sort by: Low to High</option>
@@ -108,11 +108,11 @@ useEffect(() => {
               showFilter ? "block" : "hidden"
             } transition-all`}
           >
-            <div className="border rounded-md p-4 shadow-sm" data-aos="fade-right">
-              <h2 className="text-md font-semibold mb-4 text-gray-700">
+            <div className="border rounded-md p-3" data-aos="fade-right">
+              <h2 className="text-md font-semibold mb-4 text-gray-800">
                 Select Category
               </h2>
-              <div className="flex flex-col gap-2 text-sm text-gray-700 font-medium">
+              <div className="flex flex-col gap-2 text-md text-gray-800">
                 {[
                   { label: "Kids Furniture", value: "kids-furniture" },
                   { label: "Living Room Furniture", value: "living-room-furniture" },
@@ -162,10 +162,7 @@ useEffect(() => {
                   />
                 </div>
               ))
-            ) : (
-              <p className="text-gray-500 text-center col-span-full text-lg mt-10">
-                No products found.
-              </p>
+            ) : ( " "
             )}
           </div>
         </main>

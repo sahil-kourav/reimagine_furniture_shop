@@ -461,7 +461,7 @@ export default function CircularGallery({
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
 return (
 <div
-  className="w-full h-[600px] sm:h-[400px] md:h-[500px] lg:h-[500px] overflow-hidden cursor-grab active:cursor-grabbing grayscale brightness-80"
+  className="w-full h-[660px] sm:h-[600px] md:h-[560px] lg:h-[580px] overflow-hidden cursor-grab active:cursor-grabbing grayscale brightness-80"
   ref={containerRef}
 />
 );

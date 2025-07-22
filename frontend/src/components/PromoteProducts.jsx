@@ -85,8 +85,6 @@ import React, { useRef, useState, useEffect } from "react";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import { assets } from "../assets/assets";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const PromoteProducts = () => {
   const videoRef = useRef(null);
@@ -106,7 +104,6 @@ const PromoteProducts = () => {
     if (videoRef.current) {
       videoRef.current.pause();
     }
-    AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
@@ -120,7 +117,7 @@ const PromoteProducts = () => {
         loop
         playsInline
         loading="lazy"
-        data-aos="zoom-in" 
+        data-aos="zoom-out" 
         data-aos-duration="1200"
       />
 

@@ -41,18 +41,8 @@
 // };
 
 // export default App;
-
-
-
-
-
-
-
-
-
-
 import React, { useEffect, lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom"; // ✅ useLocation added
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/Navbar";
@@ -72,17 +62,25 @@ const Verify = lazy(() => import("./pages/Verify"));
 const NotFound = lazy(() => import("./NotFound/NotFound"));
 
 const App = () => {
-  
+  const { pathname } = useLocation(); // ✅
+
+  // ✅ Scroll to top on every route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
+    <Suspense
+      fallback={
+        <p className="text-center py-6 text-gray-500">
+          Loading something magical... ✨
+        </p>
+      }
+    >
       <div className="w-full max-w-screen">
-
-      <Suspense
-        fallback={<p className="text-center py-10 text-gray-500">Ohhhooo ohhhoooo!!!!!!!...</p>}
-      >
-      <ToastContainer />
-      <Navbar />
-      <SearchBar />
-
+        <ToastContainer />
+        <Navbar />
+        <SearchBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<Collection />} />
@@ -95,10 +93,9 @@ const App = () => {
           <Route path="/verify" element={<Verify />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-
-      <Footer />
-      </Suspense>
-    </div>
+        <Footer />
+      </div>
+    </Suspense>
   );
 };
 
