@@ -114,7 +114,6 @@ const CardSwap = ({
         );
       });
 
-      // ✅ Moved here: Update order before sending to back
       order.current = [...rest, front];
 
       const backSlot = makeSlot(refs.length - 1, cardDistance, verticalDistance, refs.length);

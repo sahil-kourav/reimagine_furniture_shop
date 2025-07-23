@@ -56,14 +56,16 @@ const Orders = () => {
         data-aos="fade-down"
       >
         <Title text1="MY" text2="ORDERS" />
-        <p className="text-center text-gray-700 text-sm font-light mb-12">
-          Your order updates automatically with every status change.
+        {/* <p className="text-center text-gray-600 text-base mb-12"> */}
+          <p className="max-w-3xl mx-auto mb-12 text-md sm:text-base md:text-md lg:text-md text-gray-900 font-light text-center">
+
+          Stay informed — your order updates automatically at every stage.
         </p>
       </div>
 
       {loading ? (
-        <p className="text-center py-10 text-gray-500 animate-pulse">
-          Loading Orders...
+        <p className="text-center py-6 text-gray-500 animate-pulse">
+          Loading your personalized order info...
         </p>
       ) : orders.length === 0 ? (
         <p className="text-center py-10 text-gray-500">No orders found.</p>
@@ -96,7 +98,7 @@ const Orders = () => {
                     <p className="text-sm">
                       Total Amount:{" "}
                       <span className="font-semibold">
-                        {item.price.toLocaleString("en-IN", {
+                        {item.amount.toLocaleString("en-IN", {
                           style: "currency",
                           currency: "INR",
                           maximumFractionDigits: 0,
@@ -125,7 +127,7 @@ const Orders = () => {
 
               <div className="md:w-1/2 flex justify-between mt-4 items-center ">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
                   <p className="text-sm font-medium">{item.status}</p>
                 </div>
 

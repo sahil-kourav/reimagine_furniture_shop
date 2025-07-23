@@ -19,11 +19,8 @@ const Navbar = () => {
   };
 
   const handleProtectedNavigation = (path) => {
-    if (token) {
-      navigate(path);
-    } else {
-      navigate("/login");
-    }
+    if (token) navigate(path);
+    else navigate("/login");
   };
 
   useEffect(() => {
@@ -41,77 +38,55 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navbar */}
-      <div className="hidden sm:flex items-center justify-between px-12 md:px-8 py-4 shadow-sm border-b bg-white font-medium sticky top-0 z-50">
-        {/* <NavLink to="/" className="text-2xl font-bold text-gray-800">
-          NestCraft
-        </NavLink> */}
+      <div className="hidden sm:flex items-center justify-between px-12 py-4 bg-white shadow border-b border-gray-400 transition-all duration-200 sticky top-0 z-50 animate-fade-in">
+        <NavLink to="/">
+          <img
+            className="w-36 hover:scale-105 transition-all duration-500"
+            src={assets.logo}
+            alt="logo"
+          />
+        </NavLink>
 
-        <NavLink to='/'><img className='w-32' src={assets.logo} alt="" /></NavLink>
-
-        
-
-        <ul className="flex gap-6 text-md text-gray-700">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `hover:text-black transition-all ${
-                isActive ? "text-black border-b border-gray-700" : ""
-              }`
-            }
-          >
-            HOME
-          </NavLink>
-          <NavLink
-            to="/collection"
-            className={({ isActive }) =>
-              `hover:text-black transition-all ${
-                isActive ? "text-black border-b border-gray-700" : ""
-              }`
-            }
-          >
-            COLLECTION
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `hover:text-black transition-all ${
-                isActive ? "text-black border-b border-gray-700" : ""
-              }`
-            }
-          >
-            ABOUT
-          </NavLink>
+        <ul className="flex gap-10 text-[17px] font-medium tracking-wide">
+          {["/", "/collection", "/about"].map((path, index) => (
+            <NavLink
+              key={index}
+              to={path}
+              className={({ isActive }) =>
+                `hover:text-black  ${
+                  isActive ? "text-black font-medium border-b border-gray-700" : "text-gray-500"
+                }`
+              }
+            >
+              {path === "/" ? "HOME" : path.slice(1).toUpperCase()}
+            </NavLink>
+          ))}
         </ul>
 
         <div className="flex items-center gap-6">
-          {/* Search */}
           <img
             onClick={() => {
               setShowSearch(true);
               navigate("/collection");
             }}
             src={assets.search_icon}
-            className="w-5 cursor-pointer hover:scale-110 transition-transform"
+            className="w-5 cursor-pointer hover:scale-125 transition-all duration-300"
             alt="search"
           />
 
           <div className="relative" ref={dropdownRef}>
             <img
               onClick={() => {
-                if (!token) {
-                  navigate("/login");
-                } else {
-                  setShowDropdown(!showDropdown);
-                }
+                token ? setShowDropdown(!showDropdown) : navigate("/login");
               }}
-              className="w-5 cursor-pointer hover:scale-110 transition-transform"
+              className="w-5 cursor-pointer hover:scale-125 transition-transform duration-300"
               src={assets.profile_icon}
               alt="profile"
             />
 
             {token && showDropdown && (
-              <div className="flex flex-col absolute right-0 top-8 w-52 bg-white border shadow-lg rounded-md z-10 transition-all duration-200 animate-fade-in-up">
-                <button className="py-2 px-4 text-md hover:bg-gray-100 text-gray-600 text-left">
+              <div className="flex flex-col absolute right-0 py-1 top-8 w-52 bg-white border shadow-xl rounded-xl z-10 transition-all duration-300 animate-dropdown overflow-hidden">
+                <button className="py-2 px-5 text-sm hover:bg-gray-100 text-gray-900 text-left">
                   My Account
                 </button>
                 <button
@@ -119,7 +94,7 @@ const Navbar = () => {
                     navigate("/orders");
                     setShowDropdown(false);
                   }}
-                  className="py-2 px-4 text-md hover:bg-gray-100 text-gray-600 text-left"
+                  className="py-2 px-5 text-sm hover:bg-gray-100 text-gray-900 text-left"
                 >
                   Orders
                 </button>
@@ -128,7 +103,7 @@ const Navbar = () => {
                     logout();
                     setShowDropdown(false);
                   }}
-                  className="py-2 px-4 text-md hover:bg-gray-100 text-red-500 text-left"
+                  className="py-2 px-5 text-sm hover:bg-gray-100 text-red-500 text-left"
                 >
                   Logout
                 </button>
@@ -136,17 +111,16 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Cart */}
           <div
             className="relative cursor-pointer"
             onClick={() => handleProtectedNavigation("/cart")}
           >
             <img
               src={assets.cart_icon}
-              className="w-5 min-w-5 hover:scale-110 transition-transform"
+              className="w-5 hover:scale-125 transition-transform duration-300"
               alt="cart"
             />
-            <p className="absolute -right-2 -bottom-2 w-5 h-5 text-center bg-black text-white rounded-full text-[10px] flex items-center justify-center">
+            <p className="absolute -right-2 -bottom-2 w-5 h-5 text-center bg-black text-white rounded-full text-[11px] flex items-center justify-center animate-bounce">
               {getCartCount()}
             </p>
           </div>
@@ -154,40 +128,40 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navbar */}
-      <div className="flex sm:hidden items-center justify-between px-4 py-4 shadow-sm border-b bg-white font-medium sticky top-0 z-50">
-        {/* <NavLink to="/" className="text-xl font-bold text-gray-800">
-          NestCraft
-        </NavLink> */}
+      <div className="flex sm:hidden items-center justify-between px-4 py-4 bg-white shadow-lg border-b border-gray-300 font-medium sticky top-0 z-50 animate-fade-in">
+        <NavLink to="/">
+          <img
+            className="w-28 hover:scale-105 transition-all duration-500"
+            src={assets.logo}
+            alt="logo"
+          />
+        </NavLink>
 
-        <NavLink to='/'><img className='w-28' src={assets.logo} alt="" /></NavLink>
         <div className="flex items-center gap-5">
-          {/* Search */}
           <img
             onClick={() => {
               setShowSearch(true);
               navigate("/collection");
             }}
             src={assets.search_icon}
-            className="w-5 cursor-pointer hover:scale-110 transition-transform"
+            className="w-5 cursor-pointer hover:scale-125 transition-transform"
             alt="search"
           />
 
-          {/* Cart */}
           <div
             className="relative cursor-pointer"
             onClick={() => handleProtectedNavigation("/cart")}
           >
             <img
               src={assets.cart_icon}
-              className="w-5 min-w-5 hover:scale-110 transition-transform"
+              className="w-5 hover:scale-125 transition-transform duration-300"
               alt="cart"
             />
-            <p className="absolute -right-2 -bottom-2 w-5 h-5 text-center bg-black text-white rounded-full text-[10px] flex items-center justify-center">
+            <p className="absolute -right-2 -bottom-2 w-5 h-5 text-center bg-black text-white rounded-full text-[10px] flex items-center justify-center animate-bounce">
               {getCartCount()}
             </p>
           </div>
 
-          {/* Mobile Menu */}
           <img
             onClick={() => setVisible(true)}
             src={assets.menu_icon}
@@ -197,7 +171,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Backdrop */}
+      {/* Backdrop */}
       {visible && (
         <div
           className="fixed inset-0 bg-black bg-opacity-30 z-40"
@@ -205,9 +179,9 @@ const Navbar = () => {
         />
       )}
 
-      {/* Mobile Sidebar */}
+      {/* Sidebar */}
       <div
-        className={`sm:hidden fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 z-50 ${
+        className={`sm:hidden fixed top-0 right-0 h-full w-64 bg-white shadow-2xl transform transition-transform duration-300 z-50 ${
           visible ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -5,13 +5,13 @@ import { assets } from "../assets/assets";
 
 const Footer = () => {
   return (
-    <footer className="border-t-2 mt-10 text-gray-700">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 py-6 mt-4 text-center flex flex-col items-center">
+    <footer className="border-t mt-10 text-gray-700">
+      <div className="max-w-8xl mx-auto px-3 sm:px-10 md:px-14 lg:px-20 py-6 mt-4 text-center flex flex-col items-center">
         {/* Logo & Tagline */}
         <Link to="/">
-          <img src={assets.logo} alt="NestCraft Logo" className="w-36 mb-4" />
+          <img src={assets.logo} alt="NestCraft Logo" className="w-40 mb-6" />
         </Link>
-        <p className="max-w-xl text-sm text-gray-600 mb-6">
+        <p className="max-w-2xl text-md text-gray-600 mb-4">
           At <span className="font-semibold text-gray-800">NestCraft</span>, we design furniture that transforms homes. With timeless aesthetics and durable materials, our mission is to bring beauty, functionality, and warmth to every corner of your space.
         </p>
 
@@ -50,7 +50,7 @@ const Footer = () => {
                 <Mail size={16} /> contact@nestcraft.com
               </li>
               <li className="flex justify-center items-center gap-2">
-                <MapPin size={16} /> Mumbai, India – 400001
+                <MapPin size={16} /> Indore, India – 452001
               </li>
             </ul>
           </div>

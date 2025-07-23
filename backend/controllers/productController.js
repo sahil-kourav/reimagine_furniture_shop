@@ -1,7 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
-import Product from "../models/product.js"; // Sequelize Product model
+import Product from "../models/product.js"; 
 
-// Add Product
 const addProduct = async (req, res) => {
   try {
     const { name, description, price, category, sizes, bestseller } = req.body;
@@ -22,7 +21,7 @@ const addProduct = async (req, res) => {
       })
     );
 
-    // Prepare product data
+
     const productData = {
       name, 
       description,
@@ -30,7 +29,7 @@ const addProduct = async (req, res) => {
       price: Number(price),
       bestseller: bestseller === "true",
       sizes: JSON.parse(sizes),
-      image: imagesUrl, // Must store as string in MySQL
+      image: imagesUrl,
     };
 
     const product = await Product.create(productData);

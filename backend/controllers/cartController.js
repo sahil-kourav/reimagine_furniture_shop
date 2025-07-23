@@ -1,4 +1,4 @@
-import userModel from "../models/user.js"; // Sequelize user model
+import userModel from "../models/user.js";
 
 // Add products to user cart
 const addToCart = async (req, res) => {
@@ -12,7 +12,7 @@ const addToCart = async (req, res) => {
       return res.json({ success: false, message: "User not found" });
     }
 
-    let cartData = userData.cartData || {}; // Ensure cartData exists
+    let cartData = userData.cartData || {};
 
     if (cartData[itemId]) {
       if (cartData[itemId][size]) {
@@ -47,7 +47,7 @@ const updateCart = async (req, res) => {
       return res.json({ success: false, message: "User not found" });
     }
 
-    let cartData = userData.cartData || {}; // Ensure cartData exists
+    let cartData = userData.cartData || {}; 
 
     // Update the item quantity in the cart
     if (cartData[itemId] && cartData[itemId][size]) {
@@ -78,7 +78,7 @@ const getUserCart = async (req, res) => {
       return res.json({ success: false, message: "User not found" });
     }
 
-    let cartData = userData.cartData || {}; // Ensure cartData exists
+    let cartData = userData.cartData || {};
 
     res.json({ success: true, cartData });
   } catch (error) {

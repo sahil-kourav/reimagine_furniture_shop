@@ -1,9 +1,8 @@
-import orderModel from "../models/order.js"; // Sequelize order model
-import userModel from "../models/user.js"; // Sequelize user model
+import orderModel from "../models/order.js"; 
+import userModel from "../models/user.js"; 
 import razorpay from "razorpay";
 import crypto from "crypto";
 
-// Global variables
 const currency = "INR";
 
 // Gateway initialize
@@ -55,7 +54,6 @@ const placeOrderRazorpay = async (req, res) => {
       date: Date.now(),
     };
 
-    // Creating order using Sequelize
     const newOrder = await orderModel.create(orderData);
 
     const options = {
@@ -88,7 +86,6 @@ const verifyRazorpay = async (req, res) => {
       .digest("hex");
 
     if (generatedSignature === razorpay_signature) {
-      // Update payment status in order model
       await orderModel.update({ payment: "Paid" }, { where: { id: razorpay_order_id } });
       
       // Clear user cart data after successful payment
@@ -132,9 +129,6 @@ const userOrders = async (req, res) => {
 const updateStatus = async (req, res) => {
   try {
     const { orderId, status } = req.body;
-// console.log('Order ID:', orderId);
-// console.log('Status:', status);
-
     await orderModel.update({ status }, { where: { id: orderId } });
     res.json({ success: true, message: "Status Updated" });
   } catch (error) {

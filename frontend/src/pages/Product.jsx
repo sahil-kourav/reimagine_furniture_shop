@@ -128,7 +128,7 @@ const Product = () => {
         <div className="w-full md:w-1/2" data-aos="fade-right">
           <img
             loading="lazy"
-            src={assets.shipping}
+            src={"https://res.cloudinary.com/dbz0bpnhw/image/upload/v1753293493/shipping_krdteu.jpg"}
             alt="Furniture Delivery"
             className="w-full h-auto rounded-md object-cover"
           />
