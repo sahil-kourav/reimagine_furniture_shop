@@ -45,9 +45,8 @@ const Orders = () => {
   }, [token]);
 
   useEffect(() => {
-    fetchOrders();
     AOS.init({ duration: 800, once: true });
-  }, [token]);
+  });
 
   return (
     <div className="border-t pt-16 px-4 sm:px-6 md:px-10 lg:px-20 py-12 bg-white min-h-screen">
