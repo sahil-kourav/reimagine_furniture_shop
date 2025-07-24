@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 })
 
 // Sync DB and start server
-sequelize.sync({ alter : true })
+sequelize.sync()
   .then(() => {
     console.log("MySQL DB connected & synced");
     app.listen(port, () => console.log(`Server is now running on port ${port} `));
