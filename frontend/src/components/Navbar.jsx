@@ -38,10 +38,10 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navbar */}
-      <div className="hidden sm:flex items-center justify-between px-12 py-4 bg-white shadow border-b border-gray-400 transition-all duration-200 sticky top-0 z-50 animate-fade-in">
+      <div className="hidden sm:flex items-center justify-between px-12 py-3 bg-white shadow border-b border-gray-400 transition-all duration-200 sticky top-0 z-50 animate-fade-in">
         <NavLink to="/">
           <img
-            className="w-36 hover:scale-105 transition-all duration-500"
+            className="w-32 hover:scale-105 transition-all duration-500"
             src={assets.logo}
             alt="logo"
           />
