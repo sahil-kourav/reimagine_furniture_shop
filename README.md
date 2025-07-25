@@ -10,7 +10,7 @@ NestCraft is not a redesign — it's an original concept and vision for a future
 
 **Frontend:** React · TailwindCSS · Material UI · Framer Motion · GSAP · Vite · React Bites
 **Backend:** Node.js · Express · Sequelize ORM · MYSQL · Cloudinary · Multer · JWT · Razorpay
-**Deployment:** Vercel (Frontend) · Render (Backend) · Railway (MYSQL)
+**Deployment:** Vercel (Frontend & Admin) · Render (Backend) · Railway (MYSQL)
 **State Management:** React State · Context API
 **Dev Tools:** Nodemon · Postman · Git · GitHub
 
