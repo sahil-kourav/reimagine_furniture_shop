@@ -11,7 +11,7 @@ const LatestCollection = () => {
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
-    setLatestProducts(products.slice(0, 8));
+    setLatestProducts(products.slice(0, 10));
   }, [products]);
 
   return (

@@ -38,8 +38,8 @@ const HeroSection = () => {
           data-aos-delay="200"
         >
           We make furniture that works harder
-          <br className="hidden sm:block" />
-          so you can live easier.
+          <br/>
+           so you can live easier.
         </h2>
 
         {/* Subtext */}
@@ -49,7 +49,7 @@ const HeroSection = () => {
           data-aos-delay="300"
         >
           Beautifully designed. Built to last. Delivered when you need it.
-          <br className="hidden sm:block" />
+          <br className="hidden sm:block" /> 
           Furniture that fits your style — and your schedule.
         </p>
 

@@ -18,7 +18,7 @@ const ProductItem = ({ id, image, name, price }) => {
         <LazyLoadImage 
           src={image[0]}
           alt={name}
-          className="w-full h-[250px] object-fit group-hover:scale-105 transition-transform duration-500 ease-in-out"
+          className="w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
         />
         <span className="absolute top-3 left-3 bg-white/90 text-gray-800 text-[11px] px-3 py-[2px] rounded-full font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Quick View

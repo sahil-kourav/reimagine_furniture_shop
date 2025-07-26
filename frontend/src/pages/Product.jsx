@@ -40,7 +40,7 @@ const Product = () => {
   return productData ? (
     <div className="border-t-2 px-4 sm:px-6 md:px-10 lg:px-20 py-8 pt-10 transition-opacity ease-in duration-500 opacity-100">
       {/* Image + Product Info */}
-      <div className="flex gap-12 flex-col sm:flex-row">
+      <div className="flex gap-12 flex-col sm:flex-row px-2">
         {/* Image Gallery */}
         <div
           className="flex-1 flex flex-col-reverse gap-3 sm:flex-row"
@@ -58,7 +58,7 @@ const Product = () => {
               />
             ))}
           </div>
-          <div className="w-full sm:w-[80%]">
+          <div className="w-full sm:w-[85%]">
             <img
               className="w-full h-auto"
               loading="lazy"
@@ -97,7 +97,7 @@ const Product = () => {
               maximumFractionDigits: 0,
             })}
           </p>
-          <p className="mt-5 pr-4 text-gray-600 text-md md:w-5/5">
+          <p className="mt-5 text-gray-600 text-md text-justify sm:text-justify md:text-left  lg:text-left md:w-5/5">
             {productData.description}
           </p>
 
@@ -121,7 +121,7 @@ const Product = () => {
 
       {/* Shipping Info */}
       <div
-        className="flex flex-col md:flex-row items-center gap-6 mt-12 p-6 rounded-lg"
+        className="flex flex-col md:flex-row items-center gap-6 mt-12 p-4 rounded-lg"
        
       >
         {/* Image Section */}
