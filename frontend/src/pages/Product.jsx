@@ -38,9 +38,9 @@ const Product = () => {
   }
 
   return productData ? (
-    <div className="border-t-2 px-4 sm:px-6 md:px-10 lg:px-20 py-8 pt-10 transition-opacity ease-in duration-500 opacity-100">
+    <div className="border-t-2 px-4 sm:px-6 md:px-10 lg:px-20 py-8 pt-5 transition-opacity ease-in duration-500 opacity-100">
       {/* Image + Product Info */}
-      <div className="flex gap-12 flex-col sm:flex-row px-2">
+      <div className="flex gap-12 flex-col sm:flex-row">
         {/* Image Gallery */}
         <div
           className="flex-1 flex flex-col-reverse gap-3 sm:flex-row"
@@ -97,7 +97,7 @@ const Product = () => {
               maximumFractionDigits: 0,
             })}
           </p>
-          <p className="mt-5 text-gray-600 text-md text-justify sm:text-justify md:text-left  lg:text-left md:w-5/5">
+          <p className="mt-5 text-gray-600 pr-2 text-md text-left md:w-5/5">
             {productData.description}
           </p>
 
@@ -111,7 +111,7 @@ const Product = () => {
 
           <hr className="mt-8 sm:w-5/5" />
 
-          <div className="text-sm text-gray-600 mt-5 flex flex-col gap-1">
+          <div className="text-md text-gray-600 mt-5 flex flex-col gap-1">
             <p>100% Original product.</p>
             <p>Cash on delivery is available on this product.</p>
             <p>Easy return and exchange policy within 7 days.</p>
@@ -142,7 +142,7 @@ const Product = () => {
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 leading-snug">
             Fast, Safe & Affordable Shipping
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base">
+          <p className="text-gray-600 text-md">
             We ensure your furniture reaches you safely and on time — with zero
             hassle. Our delivery network is trusted, efficient, and designed to
             protect your product at every step. Your dream setup, now just a
