@@ -190,7 +190,7 @@ const Login = () => {
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 300 }}
         type="submit"
-        className="w-full bg-black text-white font-medium tracking-wide py-2.5 rounded-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition"
+        className="w-full bg-black text-white font-medium tracking-wide py-2.5 rounded-md hover:bg-gray-900 focus:outline-none transition"
       >
         {currentState === "Login" ? "Sign In →" : "Sign Up →"}
       </motion.button>

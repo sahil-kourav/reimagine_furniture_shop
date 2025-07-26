@@ -23,15 +23,15 @@ const RelatedProducts = ({ category }) => {
   }, [products, category]);
 
   return (
-    <div className="my-10 px-4 sm:px-6 lg:px-16 max-w-8xl mx-auto">
+    <div className="my-10 px-0 md:px-10 lg:px-20 mx-auto">
       <div className="text-center text-3xl py-8" data-aos="fade-up">
         <Title text1={"RELATED"} text2={"PRODUCTS"} />
-        <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-md lg:text-md text-gray-500 leading-relaxed">
           Discover our handpicked selection of related products that complement your style and needs.
         </p>
       </div>
 
-      <div className="grid mt-12 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-10">
+      <div className="grid mt-12 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 sm:gap-x-4 md:gap-x-4 lg:gap-x-5 gap-y-10">
         <Suspense fallback={<div className="text-center col-span-full">Loading...</div>}>
           {related.map((item, index) => (
             <div key={item.id} data-aos="fade-up" data-aos-delay={index * 30}>

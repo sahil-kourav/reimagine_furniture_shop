@@ -27,7 +27,7 @@ const BestSeller = () => {
           data-aos-delay="100"
         >
           <Title text1={"BEST"} text2={"SELLERS"} />
-          <p className="max-w-3xl mx-auto mt-5 px-2 md:px-4 lg:px-2 text-lg sm:text-base md:text-lg lg:text-md text-gray-600 leading-relaxed text-center">
+          <p className="max-w-3xl mx-auto mt-5 px-2 md:px-4 lg:px-2 text-lg sm:text-base md:text-md lg:text-md text-gray-600 leading-relaxed text-center">
             Discover our most loved and top-selling products, handpicked by our
             happy customers. Quality meets style.
           </p>
