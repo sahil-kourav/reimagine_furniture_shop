@@ -35,7 +35,7 @@ const BestSeller = () => {
       </div>
 
       <div
-        className="mt-12 px-4 md:px-10 lg:px-20 grid gap-x-6 gap-y-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5"
+        className="mt-12 px-4 md:px-10 lg:px-20 grid gap-x-4 sm:gap-x-4 md:gap-x-4 lg:gap-x-5 gap-y-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5"
         data-aos="fade-up"
       >
         {bestSeller.map((item, index) => (
